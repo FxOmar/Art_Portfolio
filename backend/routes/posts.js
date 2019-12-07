@@ -1,10 +1,10 @@
 const express = require('express')
-const Blog = require('../db/db')
+const Posts = require('../db/posts')
 
 const router = express.Router()
 
 router.get('/api/v1/posts', (req, res, next) => {
-  Blog.find({}, (err, posts) => {
+  Posts.find({}, (err, posts) => {
     if (err) throw err
     return res.status(200).send({
       success: true,
@@ -26,7 +26,7 @@ router.post('/api/v1/posts', (req, res) => {
       message: 'content is required'
     })
   }
-  const posts = Blog({
+  const posts = Posts({
     title: req.body.title,
     body: req.body.body
   })
@@ -42,7 +42,7 @@ router.post('/api/v1/posts', (req, res) => {
 
 router.get('/api/v1/posts/:id', (req, res, next) => {
   const id = req.params.id
-  Blog.findById(id, (err, post) => {
+  Posts.findById(id, (err, post) => {
     if (err) throw err
 
     return res.status(200).send({
