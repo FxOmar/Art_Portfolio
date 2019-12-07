@@ -1,9 +1,9 @@
 // Import the mongoose module
 const mongoose = require('mongoose')
 
-// Set up default mongoose connection
-const mongoDB = 'mongodb://127.0.0.1:27017/blog'
-mongoose.connect(mongoDB, { useNewUrlParser: true })
+// Set up default mongoose connectio
+const mongoDB = 'mongodb://127.0.0.1/blog'
+mongoose.connect(mongoDB, { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true })
 
 //  Get the default connection
 let db = mongoose.connection
@@ -21,13 +21,29 @@ const blogSchema = new Schema({
   author: String,
   body: String,
   comments: [{ body: String, date: Date }],
-  date: { type: Date, default: Date.now },
   hidden: Boolean,
   meta: {
     votes: Number,
     favs: Number
-  }
+  },
+  created_at: Date,
+  updated_at: Date
 })
+
+// on every save, add the date
+blogSchema.pre('save', function(next) {
+  // get the current date
+  let currentDate = new Date();
+
+  // change the updated_at field to current date
+  this.updated_at = currentDate;
+
+  // if created_at doesn't exist, add to that field
+  if (!this.created_at)
+    this.created_at = currentDate;
+
+  next();
+});
 const Blog = mongoose.model('Blog', blogSchema)
 
 module.exports = Blog

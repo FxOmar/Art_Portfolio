@@ -4,13 +4,12 @@ const Blog = require('../db/db')
 const router = express.Router()
 
 router.get('/api/v1/posts', (req, res, next) => {
-  res.status(200).send({
-    success: 'True',
-    message: 'Posts retrieved successfully',
-    posts: Blog.find({}).then(post => {
-      req.json(post)
-    }).catch(err => {
-      console.log(err)
+  Blog.find({}, (err, posts) => {
+    if (err) throw err
+    return res.status(200).send({
+      success: true,
+      message: 'Success',
+      posts
     })
   })
 })
@@ -27,18 +26,17 @@ router.post('/api/v1/posts', (req, res) => {
       message: 'content is required'
     })
   }
-  Blog.create({
+  const posts = Blog({
     title: req.body.title,
     body: req.body.body
-  }).then(post => {
-    res.json(post)
-  }).catch(err => {
-    console.log(err)
   })
-  return res.status(201).send({
-    success: 'true',
-    message: 'post added successfully',
-    Blog
+  posts.save((err) => {
+    if (err) throw err
+    return res.status(201).send({
+      success: 'true',
+      message: 'post added successfully',
+      posts
+    })
   })
 })
 
@@ -58,4 +56,5 @@ router.get('/api/v1/posts/:id', (req, res, next) => {
     message: 'post does not exist'
   })
 })
+
 module.exports = router
