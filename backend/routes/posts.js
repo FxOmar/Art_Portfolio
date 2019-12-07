@@ -41,19 +41,15 @@ router.post('/api/v1/posts', (req, res) => {
 })
 
 router.get('/api/v1/posts/:id', (req, res, next) => {
-  const id = parseInt(req.params.id, 10)
-  db.map((post) => {
-    if (post.id === id) {
-      return res.status(200).send({
-        success: 'true',
-        message: 'post retrieved successfully',
-        post
-      })
-    }
-  })
-  return res.status(404).send({
-    success: 'false',
-    message: 'post does not exist'
+  const id = req.params.id
+  Blog.findById(id, (err, post) => {
+    if (err) throw err
+
+    return res.status(200).send({
+      success: 'true',
+      message: 'post retrieved successfully',
+      post
+    })
   })
 })
 
