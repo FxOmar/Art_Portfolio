@@ -11,7 +11,7 @@
         </button>
       </div>
       <transition name="slide-fade">
-        <div v-if="isActive" class="bg-teal-600 absolute inset-0 w-64 py-12 shadow-lg slide-menu">
+        <div v-if="isActive" class="bg-teal-600 absolute inset-0 w-64 py-12 shadow-lg slide-menu z-10">
           <div class="absolute top-0 right-0 my-5 mx-8 text-white text-lg"><a @click="isActive = false" href="#"><i class="fas fa-times"></i></a></div>
           <ul class=" text-center">
             <li><a href="#">Home</a></li>

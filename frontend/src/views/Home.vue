@@ -1,15 +1,8 @@
 <template>
   <div class="home">
     <div>
-        <carrousel>
-          <swiper-slide v-for="post in data.posts" :key="post.id">
-            <card title="post.title" image="post.feature_image" url="post.slug" />
-          </swiper-slide>
-        </carrousel>
+      <card />
     </div>
-    <!-- <div>
-      <carrousel />
-    </div> -->
   </div>
 </template>
 
@@ -23,11 +16,6 @@ export default {
   components: {
     // carrousel,
     card
-  },
-  data () {
-    return {
-      data: []
-    }
   }
 }
 </script>
