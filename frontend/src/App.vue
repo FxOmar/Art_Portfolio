@@ -1,17 +1,15 @@
 <template>
   <div id="app">
-    <div class="flex">
-      <sidebar />
+      <navbar />
       <router-view/>
-    </div>
   </div>
 </template>
 
 <script>
-import sidebar from '@/components/sidebar'
+import navbar from '@/components/navbar'
 export default {
   components: {
-    sidebar
+    navbar
   }
 }
 </script>
