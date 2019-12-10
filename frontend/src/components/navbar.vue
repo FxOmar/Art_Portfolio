@@ -12,7 +12,7 @@
       </div>
       <transition name="slide-fade">
         <div v-if="isActive" class="bg-padua fixed inset-0 w-64 h-full py-12 shadow-lg slide-menu z-10">
-          <div class="absolute top-0 right-0 my-5 mx-8 text-moss text-lg"><a @click="isActive = false" href="#"><i class="fas fa-times"></i></a></div>
+          <div v-on-clickaway="away" class="absolute top-0 right-0 my-5 mx-8 text-moss text-lg"><a @click="isActive = false" href="#"><i class="fas fa-times"></i></a></div>
           <ul class="text-center">
             <li><a href="#">Home</a></li>
             <li><a href="#">About Us</a></li>
@@ -29,11 +29,21 @@
 </template>
 
 <script>
+import { directive as onClickaway } from 'vue-clickaway'
+
 export default {
   name: 'navbar',
+  directives: {
+    onClickaway: onClickaway
+  },
   data () {
     return {
       isActive: false
+    }
+  },
+  methods: {
+    away: function () {
+      this.isActive = false
     }
   }
 }

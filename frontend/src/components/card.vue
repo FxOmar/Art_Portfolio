@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white shadow-inner blue-hover"
+  <div class="flex flex-col bg-white shadow blue-hover"
     style="width: 360px; border-radius: 1px;">
     <img src="https://images.pexels.com/photos/442559/pexels-photo-442559.jpeg?auto=compress&cs=tinysrgb"
       alt="Man with backpack" class="block w-full">

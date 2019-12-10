@@ -6,8 +6,8 @@
       </swiper-slide>
     </carrousel> -->
     <div class="container mx-auto my-10">
-      <div class="flex overflow-hidden">
-        <card />
+      <div class="flex flex-wrap justify-center">
+        <card class="mx-5 my-5" v-for="n in 9" :key="n" />
       </div>
     </div>
   </div>
