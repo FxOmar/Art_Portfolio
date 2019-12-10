@@ -17,8 +17,7 @@ router.get('/api/v1/posts', (req, res, next) => {
 
 // Get by ID
 router.get('/api/v1/posts/:id', (req, res, next) => {
-  const id = req.params.id
-  Posts.findById(id, (err, post) => {
+  Posts.findById(req.params.id, (err, post) => {
     if (err) throw err
 
     return res.status(200).send({
@@ -58,19 +57,17 @@ router.post('/api/v1/posts', (req, res) => {
 
 // Update posts by ID
 router.put('/api/v1/posts/:id', (req, res, next) => {
-  const id = req.params.id
-
-  // get a user with ID of 1
-  Posts.findById(id, (err, post) => {
+  // get post by id
+  Posts.findById(req.params.id, (err, post) => {
     if (err) throw err;
 
-    const update = {
+    const postInfo = {
       title: req.body.title,
       body: req.body.body
     }
-    if (update.title)
+    if (postInfo.title)
       post.title = req.body.title
-    if (update.body)
+    if (postInfo.body)
       post.body.body = req.body.body
 
     post.save((err) => {
@@ -80,6 +77,17 @@ router.put('/api/v1/posts/:id', (req, res, next) => {
   });
 })
 
+// Delete Post by ID
+router.delete('/api/v1/posts/:id', (req, res) => {
+  Posts.findById(req.params.id, (err, post) => {
+    if (err) throw err
+
+    post.remove((err) => {
+      if (err) throw err
+      console.log('Post successfully deleted!')
+    })
+  })
+})
 module.exports = router
 
 

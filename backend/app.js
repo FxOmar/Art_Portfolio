@@ -9,7 +9,7 @@ const postsRouter = require('./routes/posts')
 
 const app = express()
 
-// Set up default mongoose connectio
+// Set up default mongoose connection
 const mongoDB = 'mongodb://127.0.0.1/blog'
 mongoose.connect(mongoDB, { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true })
 
