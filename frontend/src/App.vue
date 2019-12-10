@@ -2,9 +2,7 @@
   <div id="app">
     <navbar />
     <hero />
-    <div>
-      <router-view/>
-    </div>
+    <router-view/>
   </div>
 </template>
 
