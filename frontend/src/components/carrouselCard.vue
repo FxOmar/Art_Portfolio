@@ -1,5 +1,5 @@
 <template>
-  <div class="relative w-64">
+  <div class="relative">
     <div class="container">
       <div @mouseleave="isActived = false" @mouseenter="isActived = true" class="front" style="background-image: url(https://unsplash.it/508/508/)">
         <div v-if="isActived">

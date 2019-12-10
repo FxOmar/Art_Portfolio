@@ -1,27 +1,28 @@
 <template>
   <div class="home">
-    <div>
-      <card />
-    </div>
+    <carrousel>
+      <swiper-slide v-for="post in 9" :key="post.id">
+        <carrouselCard />
+      </swiper-slide>
+    </carrousel>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import card from '@/components/card'
-// import carrousel from '@/components/carrousel'
+import carrouselCard from '@/components/carrouselCard'
+import carrousel from '@/components/carrousel'
 
 export default {
   name: 'home',
   components: {
-    // carrousel,
-    card
+    carrousel,
+    carrouselCard
+
   }
 }
 </script>
 
 <style scoped>
-.home{
-  @apply py-10 px-6 overflow-hidden
-}
+
 </style>
