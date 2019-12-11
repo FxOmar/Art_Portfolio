@@ -22,7 +22,10 @@
       </transition>
       <div class="flex px-3 py-2 text-moss">
         <i class="fas fa-moon mr-5 hover:text-white"></i>
-        <i class="fas fa-search hover:text-white"></i>
+        <button @click="isModalVisible = !isModalVisible"><i class="fas fa-search hover:text-white"></i></button>
+        <div>
+          <modal v-model="isModalVisible"></modal>
+        </div>
       </div>
     </div>
   </nav>
@@ -30,15 +33,20 @@
 
 <script>
 import { directive as onClickaway } from 'vue-clickaway'
+import modal from '@/components/modal'
 
 export default {
   name: 'navbar',
+  components: {
+    modal
+  },
   directives: {
     onClickaway: onClickaway
   },
   data () {
     return {
-      isActive: false
+      isActive: false,
+      isModalVisible: false
     }
   },
   methods: {
