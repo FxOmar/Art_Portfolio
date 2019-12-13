@@ -1,990 +1,220 @@
 <template>
-    <main id="site-main" class="site-main outer">
-        <div class="inner">
-            <article class="post-full post tag-getting-started ">
-                <header class="post-full-header">
-                    <section class="post-full-tags">
-                        <a href="/tag/getting-started/">Getting Started</a>
-                    </section>
-                    <h1 class="post-full-title">{{ data.title }}</h1>
-                    <p class="post-full-custom-excerpt">{{ data.custom_excerpt }}</p>
-                </header>
-                <img src="" alt="">
-                <section class="post-full-content">
-                    <div class="post-content">
-                        <div v-html="data.html"></div>
-                    </div>
-                </section>
-            </article>
+  <main>
+    <div class="container lg:mx-auto w-full my-10">
+      <div class="">
+        <div class="flex flex-col flex-wrap items-center">
+          <header class="header">
+            <hr class="border-2 border-padua w-20 inline-block mb-4">
+            <h1>Single Travel: Tips for Going Solo</h1>
+            <p>Posted on October 31, 2019 by Omar Chadidi | 16 comments</p>
+          </header>
+          <article class="content w-full lg:w-10/12">
+            <img :src="`${ background }`" alt="">
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus accusantium repellat iste eveniet iure
+              voluptas blanditiis neque, illum quibusdam facilis modi quae, voluptate culpa delectus aliquam in, commodi
+              distinctio possimus.
+            </p>
+            <p>
+              People who have never traveled alone often describe their first solo trip as an almost religious
+              experience. To take in new surroundings unfiltered by the prejudices, tastes, or preferences of a
+              traveling companion can be heady stuff. Traveling alone gives you the chance to indulge yourself fully.
+
+              Of course, single travel has its perils too—such as safety concerns, loneliness, and the dreaded single
+              supplement. But a little preparation and common sense can save you money and get you through the rough
+              spots.
+
+              Why Travel Alone?
+              Solo travel can be the ultimate in self-indulgence; you can rest when you want and pour it on when you’re
+              feeling ambitious. Another benefit is that your mistakes are your own, and your triumphs all the more
+              exciting. There’s no worrying that your insistence on trekking all the way across town to a museum that
+              was closed ruined your partner’s day; it’s your own day to salvage or chalk up to a learning experience.
+              Also, you can do exactly what you want to do—all the time. Always wanted to try surfing? Sign up for a
+              class and go for it; there’s no one sitting on the beach bored while you have the time of your life. Have
+              no desire to see Niagara Falls? Just drive right by. For more benefits of solo travel, see 11 Reasons Why
+              You Should Travel Alone at Least Once.
+
+              RELATED: The 13 Best Places to Travel Alone
+              How to Travel Alone Safely
+              Perhaps the foremost concern of the solo or single traveler is safety. Without a companion to watch your
+              back, you are more vulnerable to criminals and scam artists, as well as simple health worries. But the
+              saying “safety in numbers” isn’t necessarily true—a solo traveler can blend in more easily than a group,
+              and not drawing attention to yourself as a tourist is one way to stay secure. Here are a few safety tips
+              for traveling alone:
+
+              Know how long it takes and how much it costs to get from the airport to your hotel or to the city center.
+              Solo travelers are more likely to be “taken for a ride,” so ask the taxi driver for an estimated fare
+              before you leave. If it’s considerably different from what you know to be true, take a different cab (or
+              opt for a rideshare instead).
+
+              Book a hotel with a 24-hour front desk if you’ll be arriving late, so you don’t end up sleeping in your
+              car or worse.
+
+              Be your own best counsel; if it doesn’t feel right, don’t do it.
+
+              Carry good identification, in more than one place.
+
+              Stick to open and public places, especially at night.
+
+              Exude confidence and walk purposefully.
+
+              Avoid appearing like a tourist. Ditch the Disney T-shirt and don’t walk around with your face in a
+              guidebook. (See 10 Things You Should Never Wear Abroad for more thoughts on this one.)
+
+              Don’t draw attention to yourself by wearing flashy clothes or jewelry.
+
+              Lie a little. When asking directions, don’t let on that you are alone: “Can you direct me to the museum? I
+              have to meet a friend.”
+
+              Check your maps and transportation schedules before leaving your hotel/train/rental car/tourist office. A
+              solo traveler who’s too absorbed in her phone can be a mark for unsavory types.
+
+              Leave a copy of your itinerary with a friend or family member at home, and stay in touch regularly via
+              phone, text, video chat, or email.
+
+              For U.S. citizens traveling internationally, consider signing up for the free Smart Traveler Enrollment
+              Program (STEP), which could help the State Department assist you in case of emergency. If you’re from
+              outside the States, see if your home country has a similar program.
+
+              RELATED: How to Be Safe and Culturally Sensitive When Traveling
+              Top Travel Safety Products for Solo Travelers
+              Anti-Theft Backpack
+              Anti-Theft Backpack
+              SEE DETAILS
+              Travel Money Belt
+              Travel Money Belt
+              SEE DETAILS
+              Safety Whistle
+              Safety Whistle
+              SEE DETAILS
+              Shop Editor-Approved Travel Safety Essentials
+              Trust Everyone and No One
+              One of the best reasons to travel alone is to meet new people, but this also makes you more vulnerable.
+              It’s okay to hang out, travel, and share with new friends, but you might not want to ask them to hold your
+              money. Scam artists can often be the most charming companions you’ll find; you want to be open-minded, but
+              keep your guard up enough to ensure your safety.
+
+              RELATED: 15 Mistakes to Avoid When Traveling Solo
+              Avoiding the Single Supplement
+              Frequent solo travelers are all too familiar with the single supplement, which tour operators, cruise
+              lines, and hotels often tack onto your bill to make up for the fact that they’re not making money off a
+              second occupant. The supplement can range anywhere from 25 to 100 percent of the trip cost, meaning that
+              you could end up paying twice as much as someone traveling with a partner.
+
+              There are several ways to get around the single supplement. You can avoid it altogether by booking with a
+              tour operator that offers roommate matching, such as G Adventures, Intrepid Travel, or Road Scholar. By
+              finding you a roommate, the company maximizes its own profit off each room and saves you the single
+              supplement. The catch is, of course, that you’ll have to share a room with a stranger. If you’re
+              concerned, contact the tour operator and see what kind of procedures they use to match roommates. Some
+              pair people off at random, while others will make an effort to put complementary personalities together.
+
+              Several cruise lines offer single staterooms on select ships, including Royal Caribbean, Norwegian Cruise
+              Line, Cunard, and P&O Cruises.
+
+              You can sometimes save money by booking at the last minute. Tour operators eager to sell out their last
+              few places may be willing to reduce their usual single supplement. Insight Vacations and Road Scholar are
+              two companies that regularly discount or waive single supplements.
+
+              It’s not for everyone, but you may also want to consider staying in a hostel, which charges per bed rather
+              than per room. Hostelling International properties tend to be reliably clean and secure, and they’re open
+              to travelers of all ages. You can find more hostels and read reviews at HostelWorld.com.
+
+              RELATED: 3 Ways to Avoid the Single Supplement
+              Tips for Solo Dining
+              Eating alone isn’t so bad. Many solo travelers (and frequent business travelers) hate dining by
+              themselves, worried that they appear like some worn-out Willy Loman of the road. There’s even a name for
+              it: solomangarephobia. (Occasionally the fear is justified—see Terror at the Table for One.) The following
+              tips can help you overcome what for many travelers is the most unpleasant aspect of going it alone.
+
+              Chat with the service people. Waiters and waitresses are some of the best local color you’ll find.
+
+              Cafe or outdoor dining is often attractive to single travelers; sitting alone with a book in a cafe isn’t
+              as unusual as a table for one at a fancy restaurant.
+
+              Choose a counter seat or a seat at the bar.
+
+              Go to a restaurant that has booths, which offer more privacy.
+
+              Bring reading materials. If you start to feel uneasy sitting alone and staring down at your food, you can
+              crack open a book, whip out your phone, or read a magazine.
+
+              If you don’t want to endure yet another public meal alone, use room service or order carry-out from a
+              restaurant nearby.
+
+              Eat well. Just because you’re alone and on the run doesn’t mean you shouldn’t take time for sit-down
+              meals, a leisurely cup of coffee, or a decadent dessert.
+
+              RELATED: How to Save Money on Solo Travel
+              When You’ve Just About Had It
+              The constant sensory input and vigilance of traveling alone can wear you down. If you feel your attention
+              or your body flagging, don’t be afraid to back off your ambitious itinerary, slow the pace, and kick back
+              for a bit.
+
+              When traveling abroad, seek out an expat bar—locals will often know where these are—where you can hang out
+              and speak your native tongue with some fellow expatriates and travelers. When traveling in more familiar
+              locales, a hot shower and a night in front of the tube in a nice hotel room can often give you enough of a
+              reprieve to send you out eagerly the next morning.
+
+              Resources for Solo Travelers
+              Best Single Travel offers trips, cruises, and weekend getaways for solo travelers of all ages.
+
+              Intrepid Travel has dedicated solo trips as well as a roommate-matching program on the rest of its
+              offerings, so you never have to pay a solo supplement if you don’t want to.
+
+              One Traveller is a U.K.-based company leading trips for the “mature single traveller” (aged 50+) to
+              destinations in Europe, Asia, Africa, and North America.
+
+              Singles Travel International offers trips for solo travelers with an average age of 48 through 65. If the
+              company can’t find you a roommate by the time you make your final payment, you can have a room to yourself
+              for free.
+
+              Solos is a U.K.-based company offering a wide variety of solo-only trips around the globe.
+
+              Solo Traveler offers tips, resources, and destination guides for solo travelers.
+
+              Women Traveling Together is for solo female travelers who prefer to be with a group of like-minded women.
+              The company offers tours, retreats, and other getaways, complete with roommate matching.
+
+              More from SmarterTravel:
+              The 10 Best Solo Vacations for 2019
+              The 27 Best Apps for Solo Travelers
+              7 Things to Hate About Solo Travel (Even Though They’ll Make You a Better Traveler)
+            </p>
+          </article>
         </div>
-    </main>
+      </div>
+    </div>
+  </main>
 </template>
 
 <script>
 export default {
-  data () {
-    return {
-      data: []
-    }
-  },
-  watch: {
-    '$route': null
-  },
-  mounted () {
-    this.getPost()
-  },
-  methods: {
-    async getPost () {
-      try {
-        const res = await fetch(`http://localhost:2368/ghost/api/v3/content/posts/slug/${this.$route.params.title}?key=34ab7a4a3d0d6c74fcd12bfd6e`)
-        this.data = await res.json()
-        this.data = this.data.posts[0]
-      } catch (err) {
-        console.log(err)
-      }
+  computed: {
+    background () {
+      return require('../assets/img/jonatan-pie-oDfB5yi376g-unsplash.jpg')
     }
   }
 }
 </script>
 
 <style scoped>
-
-/* 2. Layout - Page building blocks
-/* ---------------------------------------------------------- */
-
-.site-wrapper {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-.site-main {
-    z-index: 100;
-    flex-grow: 1;
-}
-
-/* Full width page blocks */
-.outer {
-    position: relative;
-    padding: 0 5vw;
-}
-
-/* Centered content container blocks */
-.inner {
-    margin: 0 auto;
-    max-width: 1040px;
-    width: 100%;
-}
-
-/* 7. Single Post
-/* ---------------------------------------------------------- */
-
-.post-template .site-main,
-.page-template .site-main {
-    margin-top: 64px;
-    padding-bottom: 4vw;
-    background: #fff;
-}
-
-.post-full-header {
-    position: relative;
-    margin: 0 auto;
-    padding: 70px 170px 50px;
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-}
-
-.post-full-tags {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    color: var(--midgrey);
-    font-size: 1.3rem;
-    line-height: 1.4em;
-    font-weight: 600;
-    text-transform: uppercase;
-}
-
-.post-full-meta-date {
-    color: var(--midgrey);
-    font-size: 1.2rem;
-    font-weight: 400;
-}
-
-@media (max-width: 1170px) {
-    .post-full-header {
-        padding: 60px 11vw 50px;
-    }
-}
-
-@media (max-width: 800px) {
-    .post-full-header {
-        padding-right: 5vw;
-        padding-left: 5vw;
-    }
-}
-
-@media (max-width: 500px) {
-    .post-full-header {
-        padding: 20px 0 35px;
-    }
-}
-
-.post-full-title {
-    margin: 0 0 0.2em;
-    color: color(var(--darkgrey) l(-5%));
-}
-
-.post-full-custom-excerpt {
-    margin: 20px 0 0;
-    color: var(--midgrey);
-    font-family: Georgia, serif;
-    font-size: 2.3rem;
-    line-height: 1.4em;
-    font-weight: 300;
-}
-
-.date-divider {
-    display: inline-block;
-    margin: 0 6px 1px;
-    font-weight: 300;
-}
-
-.post-full-image {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow: hidden;
-    margin: 25px 0 50px;
-    background: color(var(--lightgrey) l(+10%));
-    border-radius: 3px;
-}
-
-.post-full-image img {
-    max-width: 1040px;
-    width: 100%;
-    height: auto;
-}
-
-.post-full-content {
-    position: relative;
-    margin: 0 auto;
-    padding: 0 170px 6vw;
-    min-height: 230px;
-    font-family: Georgia, serif;
-    font-size: 2.0rem;
-    line-height: 1.6em;
-    background: #fff;
-}
-
-@media (max-width: 1170px) {
-    .post-full-content {
-        padding: 0 11vw;
-    }
-}
-@media (max-width: 800px) {
-    .post-full-content {
-        padding: 0 5vw;
-        font-size: 1.8rem;
-    }
-}
-@media (max-width: 500px) {
-    .post-full-custom-excerpt {
-        font-size: 1.9rem;
-        line-height: 1.5em;
-    }
-}
-
-.no-image .post-full-content {
-    padding-top: 0;
-}
-
-.no-image .post-full-content:before,
-.no-image .post-full-content:after {
-    display: none;
-}
-
-.post-full-content h1,
-.post-full-content h2,
-.post-full-content h3,
-.post-full-content h4,
-.post-full-content h5,
-.post-full-content h6,
-.post-full-content p,
-.post-full-content ul,
-.post-full-content ol,
-.post-full-content dl,
-.post-full-content pre,
-.post-full-content blockquote,
-.post-full-comments,
-.footnotes {
-    margin: 0 0 1.5em 0;
-    min-width: 100%;
-}
-@media (max-width: 500px) {
-    .post-full-content p,
-    .post-full-content ul,
-    .post-full-content ol,
-    .post-full-content dl,
-    .post-full-content pre,
-    .post-full-comments,
-    .footnotes {
-        margin-bottom: 1.28em;
-    }
-}
-
-.post-full-content li {
-    word-break: break-word;
-}
-
-.post-full-content li p {
-    margin: 0;
-}
-
-.post-full-content a {
-    color: var(--darkgrey);
-    word-break: break-word;
-    box-shadow: var(--darkgrey) 0 -1px 0 inset;
-    transition: all 0.2s ease-in-out;
-}
-
-.post-full-content a:hover {
-    color: var(--blue);
-    text-decoration: none;
-    box-shadow: var(--blue) 0 -1px 0 inset;
-}
-
-.post-full-content strong,
-.post-full-content em {
-    color: color(var(--darkgrey) l(-5%));
-}
-
-.post-full-content small {
-    display: inline-block;
-    line-height: 1.6em;
-}
-
-.post-full-content li:first-child {
-    margin-top: 0;
-}
-
-.post-full-content img,
-.post-full-content video {
-    display: block;
-    margin: 1.5em auto;
-    max-width: 1040px;
-    height: auto;
-}
-@media (max-width: 1040px) {
-    .post-full-content img,
-    .post-full-content video {
-        width: 100%;
-    }
-}
-
-/* Full bleed images (#full)
-Super neat trick courtesy of @JoelDrapper
-
-Usage (In Ghost edtior):
-
-![img](/some/image.jpg#full)
-
-*/
-.post-full-content img[src$="#full"] {
-    max-width: none;
-    width: 100vw;
-}
-
-/* Image captions
-
-Usage (In Ghost editor):
-
-![img](/some/image.jpg)
-<small>Your image caption</small>
-
-*/
-.post-full-content img + br + small {
-    display: block;
-    margin-top: -3em;
-    margin-bottom: 1.5em;
-    text-align: center;
-}
-
-/* Override third party iframe styles */
-.post-full-content iframe {
-    margin: 0 auto !important;
-}
-
-.post-full-content blockquote {
-    margin: 0 0 1.5em;
-    padding: 0 1.5em;
-    border-left: #3eb0ef 3px solid;
-}
-@media (max-width: 500px) {
-    .post-full-content blockquote {
-        padding: 0 1.3em;
-    }
-}
-
-.post-full-content blockquote p {
-    margin: 0 0 1em 0;
-    color: inherit;
-    font-size: inherit;
-    line-height: inherit;
-    font-style: italic;
-}
-
-.post-full-content blockquote p:last-child {
-    margin-bottom: 0;
-}
-
-.post-full-content code {
-    padding: 0 5px 2px;
-    font-size: 0.8em;
-    line-height: 1em;
-    font-weight: 400!important;
-    background: var(--whitegrey);
-    border-radius: 3px;
-}
-
-.post-full-content p code {
-    word-break: break-all;
-}
-
-.post-full-content pre {
-    overflow-x: auto;
-    margin: 1.5em 0 3em;
-    padding: 20px;
-    max-width: 100%;
-    border: color(var(--darkgrey) l(-10%)) 1px solid;
-    color: var(--whitegrey);
-    font-size: 1.4rem;
-    line-height: 1.5em;
-    background: color(var(--darkgrey) l(-3%));
-    border-radius: 5px;
-}
-
-.post-full-content pre ::selection {
-    color: color(var(--midgrey) l(-25%));
-}
-
-.post-full-content pre code {
-    padding: 0;
-    font-size: inherit;
-    line-height: inherit;
-    background: transparent;
-}
-
-.post-full-content pre code :not(span) {
-    color: inherit;
-}
-
-.post-full-content .fluid-width-video-wrapper {
-    margin: 1.5em 0 3em;
-}
-
-.post-full-content hr {
-    margin: 2em 0;
-}
-
-.post-full-content hr:after {
-    content: "";
-    position: absolute;
-    top: -15px;
-    left: 50%;
-    display: block;
-    margin-left: -10px;
-    width: 1px;
-    height: 30px;
-    background: color(var(--lightgrey) l(+10%));
-    box-shadow: #fff 0 0 0 5px;
-    transform: rotate(45deg);
-}
-
-.post-full-content hr + p {
-    margin-top: 1.2em;
-}
-
-.post-full-content h1,
-.post-full-content h2,
-.post-full-content h3,
-.post-full-content h4,
-.post-full-content h5,
-.post-full-content h6 {
-    color: color(var(--darkgrey) l(-5%));
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-}
-
-.post-full-content h1 {
-    margin: 0.5em 0 0.4em;
-    font-size: 4.2rem;
-    line-height: 1.25em;
-    font-weight: 600;
-}
-.post-full-content p + h1 {
-    margin-top: 0.8em;
-}
-@media (max-width: 800px) {
-    .post-full-content h1 {
-        font-size: 3.2rem;
-        line-height: 1.25em;
-    }
-}
-
-.post-full-content h2 {
-    margin: 0.5em 0 0.4em;
-    font-size: 3.2rem;
-    line-height: 1.25em;
-    font-weight: 600;
-}
-.post-full-content p + h2 {
-    margin-top: 0.8em;
-}
-@media (max-width: 800px) {
-    .post-full-content h2 {
-        margin-bottom: 0.3em;
-        font-size: 2.8rem;
-        line-height: 1.25em;
-    }
-}
-
-.post-full-content h3 {
-    margin: 0.5em 0 0.2em;
-    font-size: 2.5rem;
-    line-height: 1.3em;
-    font-weight: 600;
-}
-.post-full-content h2 + h3 {
-    margin-top: 0.7em;
-}
-@media (max-width: 800px) {
-    .post-full-content h3 {
-        margin-bottom: 0.3em;
-        font-size: 2.4rem;
-        line-height: 1.3em;
-    }
-}
-
-.post-full-content h4 {
-    margin: 0.5em 0 0.2em;
-    font-size: 2.5rem;
-    font-weight: 600;
-}
-.post-full-content h2 + h4 {
-    margin-top: 0.7em;
-}
-.post-full-content h3 + h4 {
-    margin-top: 0;
-}
-@media (max-width: 800px) {
-    .post-full-content h4 {
-        margin-bottom: 0.3em;
-        font-size: 2.4rem;
-        line-height: 1.3em;
-    }
-}
-
-.post-full-content h5 {
-    display: block;
-    margin: 0.5em 0;
-    padding: 0.4em 1em 0.9em;
-    border: 0;
-    color: var(--blue);
-    font-family: Georgia,serif;
-    font-size: 3.2rem;
-    line-height: 1.35em;
-    text-align: center;
-}
-@media (min-width: 1180px) {
-    .post-full-content h5 {
-        max-width: 1060px;
-        width: 100vw;
-    }
-}
-@media (max-width: 800px) {
-    .post-full-content h5 {
-        margin-bottom: 1em;
-        margin-left: 1.3em;
-        padding: 0 0 0.5em;
-        font-size: 2.4rem;
-        text-align: initial;
-    }
-}
-
-.post-full-content h6 {
-    margin: 0.5em 0 0.2em 0;
-    font-size: 2.0rem;
-    font-weight: 700;
-}
-@media (max-width: 800px) {
-    .post-full-content h6 {
-        font-size: 1.8rem;
-        line-height: 1.4em;
-    }
-}
-
-.footnotes-sep {
-    margin-bottom: 30px;
-}
-
-.footnotes {
-    font-size: 1.5rem;
-}
-
-.footnotes p {
-    margin: 0;
-}
-
-.footnote-backref {
-    color: var(--blue) !important;
-    font-size: 1.2rem;
-    font-weight: bold;
-    text-decoration: none !important;
-    box-shadow: none !important;
-}
-
-/* Some grouped styles for smaller viewports */
-@media (max-width: 1170px) {
-    .post-full-image {
-        margin: 25px -6vw 50px;
-        border-radius: 0;
-    }
-
-    .post-full-image img {
-        max-width: 1170px;
-    }
-}
-
-@media (max-width: 700px) {
-    .post-full-image {
-        margin: 25px -5vw;
-    }
-}
-
-@media (max-width: 500px) {
-    .post-full-meta {
-        font-size: 1.2rem;
-        line-height: 1.3em;
-    }
-
-    .post-full-title {
-        margin-top: 0.2em;
-        font-size: 3.3rem;
-    }
-
-    .post-full-image {
-        margin-top: 5px;
-        margin-bottom: 5vw;
-    }
-
-    .post-full-content {
-        padding: 0;
-    }
-
-    .post-full-content:before,
-    .post-full-content:after {
-        display: none;
-    }
-}
-
-/* Tables */
-.post-full-content table {
-    display: inline-block;
-    overflow-x: auto;
-    margin: 0.5em 0 2.5em;
-    max-width: 100%;
-    width: auto;
-    border-spacing: 0;
-    border-collapse: collapse;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-    font-size: 1.6rem;
-    white-space: nowrap;
-    vertical-align: top;
-}
-
-.post-full-content table {
-    -webkit-overflow-scrolling: touch;
-    background: radial-gradient(ellipse at left, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 75%) 0 center, radial-gradient(ellipse at right, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 75%) 100% center;
-    background-attachment: scroll, scroll;
-    background-size: 10px 100%, 10px 100%;
-    background-repeat: no-repeat;
-}
-
-.post-full-content table td:first-child {
-    background-image: linear-gradient(to right, rgba(255,255,255, 1) 50%, rgba(255,255,255, 0) 100%);
-    background-size: 20px 100%;
-    background-repeat: no-repeat;
-}
-
-.post-full-content table td:last-child {
-    background-image: linear-gradient(to left, rgba(255,255,255, 1) 50%, rgba(255,255,255, 0) 100%);
-    background-position: 100% 0;
-    background-size: 20px 100%;
-    background-repeat: no-repeat;
-}
-
-.post-full-content table th {
-    color: var(--darkgrey);
-    font-size: 1.2rem;
-    font-weight: 700;
-    letter-spacing: 0.2px;
-    text-align: left;
-    text-transform: uppercase;
-    background-color: color(var(--whitegrey) l(+4%));
-}
-
-.post-full-content table th,
-.post-full-content table td {
-    padding: 6px 12px;
-    border: color(var(--whitegrey) l(-1%) s(-5%)) 1px solid;
-}
-
-/* 7.1. Post Byline
-/* ---------------------------------------------------------- */
-
-.post-full-byline {
-    display: flex;
-    justify-content: space-between;
-    margin: 35px 0 0;
-    padding-top: 15px;
-    border-top: 1px solid color(var(--lightgrey) l(+10%));
-}
-
-.post-full-byline-content {
-    flex-grow: 1;
-    display: flex;
-    align-items: flex-start;
-}
-
-.post-full-byline-content .author-list {
-    justify-content: flex-start;
-    padding: 0 12px 0 0;
-}
-
-.post-full-byline-meta {
-    margin: 2px 0 0;
-    color: color(var(--midgrey) l(+10%));
-    font-size: 1.2rem;
-    line-height: 1.2em;
-    letter-spacing: 0.2px;
-    text-transform: uppercase;;
-}
-
-.post-full-byline-meta h4 {
-    margin: 0 0 3px;
-    font-size: 1.3rem;
-    line-height: 1.4em;
-    font-weight: 500;
-}
-
-.post-full-byline-meta h4 a {
-    color: color(var(--darkgrey) l(+10%));
-}
-
-.post-full-byline-meta h4 a:hover {
-    color: var(--darkgrey);
-}
-
-.post-full-byline-meta .bull {
-    display: inline-block;
-    margin: 0 4px;
-    opacity: 0.6;
-}
-
-.author-avatar {
-    display: block;
-    overflow: hidden;
-    margin: 0 -4px;
-    width: 40px;
-    height: 40px;
-    border: #fff 2px solid;
-    border-radius: 100%;
-    transition: all 0.5s cubic-bezier(0.4, 0.01, 0.165, 0.99) 700ms;
-}
-
-.author-list-item .author-card {
-    position: absolute;
-    bottom: 130%;
-    left: 50%;
-    z-index: 600;
-    display: flex;
-    justify-content: space-between;
-    margin-left: -200px;
-    width: 400px;
-    font-size: 1.4rem;
-    line-height: 1.5em;
-    background: white;
-    border-radius: 3px;
-    box-shadow: rgba(39,44,49,0.08) 0 12px 26px, rgba(39, 44, 49, 0.06) 1px 3px 8px;
-    opacity: 0;
-    transition: all 0.35s cubic-bezier(0.4, 0.01, 0.165, 0.99);
-    transform: scale(0.98) translateY(15px);
-    pointer-events: none;
-}
-
-.author-list-item .author-card:before {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    display: block;
-    margin-left: -8px;
-    width: 0;
-    height: 0;
-    border-top: 8px solid #fff;
-    border-right: 8px solid transparent;
-    border-left: 8px solid transparent;
-}
-
-.author-list-item .author-card.hovered {
-    opacity: 1.0;
-    transform: scale(1) translateY(0px);
-    pointer-events: auto;
-}
-
-.author-card {
-    padding: 20px 20px 22px;
-}
-
-.author-card .author-info {
-    flex: 1 1 auto;
-    padding: 0 0 0 20px;
-}
-
-.author-card .author-info h2 {
-    margin: 8px 0 0;
-    font-size: 1.6rem;
-}
-
-.author-card .author-info p {
-    margin: 4px 0 0;
-    color: color(var(--midgrey) l(-10%));
-}
-
-.author-card .author-info .bio h2 {
-    margin-top: 0;
-}
-
-.author-card .author-info .bio p {
-    margin-top: 0.8em;
-}
-
-.author-card .author-profile-image {
-    flex: 0 0 60px;
-    margin: 0;
-    width: 60px;
-    height: 60px;
-    border: none;
-}
-
-.basic-info .avatar-wrapper {
-    position: relative;
-    margin: 0;
-    width: 60px;
-    height: 60px;
-    border: none;
-    background: rgba(229, 239, 245, 0.1);
-}
-
-.basic-info .avatar-wrapper svg {
-    margin: 0;
-    width: 60px;
-    height: 60px;
-    opacity: 0.15;
-}
-
-@media (max-width: 1170px) {
-    .author-list-item .author-card {
-        margin-left: -50px;
-        width: 430px;
-    }
-
-    .author-list-item .author-card:before {
-        left: 50px;
-    }
-}
-
-@media (max-width: 650px) {
-    .author-list-item .author-card {
-        display: none;
-    }
-}
-
-@media (max-width: 500px) {
-    .author-avatar {
-        width: 32px;
-        height: 32px;
-    }
-
-    .post-full-byline-meta {
-        font-size: 1.2rem;
-    }
-
-    .post-full-byline-meta h4 {
-        margin-bottom: 2px;
-        font-size: 1.2rem;
-    }
-}
-
-/* 7.2. Members Subscribe Form
-/* ---------------------------------------------------------- */
-.subscribe-form {
-    margin: 1.5em 0;
-    padding: 6.5vw 7vw 8vw;
-    border: color(var(--lightgrey) l(+10%)) 1px solid;
-    text-align: center;
-    background: linear-gradient(color(var(--whitegrey) l(+6%)), color(var(--whitegrey) l(+4%)));
-    border-radius: 3px;
-}
-
-.subscribe-form-title {
-    margin: 0 0 3px 0;
-    padding: 0;
-    color: var(--darkgrey);
-    font-size: 3.5rem;
-    line-height: 1;
-    font-weight: 600;
-}
-
-.subscribe-form-description {
-    margin-bottom: 0.2em 0 1em;
-    color: var(--midgrey);
-    font-size: 2.1rem;
-    line-height: 1.55em;
-}
-
-.subscribe-form form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-    max-width: 460px;
-}
-
-.subscribe-form .form-group {
-    align-self: stretch;
-    display: flex;
-}
-
-.subscribe-email {
-    display: block;
-    padding: 10px;
-    width: 100%;
-    border: color(var(--lightgrey) l(+7%)) 1px solid;
-    color: var(--midgrey);
-    font-size: 1.8rem;
-    line-height: 1em;
-    font-weight: normal;
-    user-select: text;
-    border-radius: 5px;
-    transition: border-color 0.15s linear;
-
-    -webkit-appearance: none;
-}
-
-.subscribe-email:focus {
-    outline: 0;
-    border-color: color(var(--lightgrey) l(-2%));
-}
-
-.subscribe-form button {
-    position: relative;
-    display: inline-block;
-    margin: 0 0 0 10px;
-    padding: 0 20px;
-    height: 43px;
-    outline: none;
-    color: #fff;
-    font-size: 1.5rem;
-    line-height: 39px;
-    font-weight: 400;
-    text-align: center;
-    background: linear-gradient(
-    color(var(--blue) whiteness(+7%)),
-    color(var(--blue) lightness(-7%) saturation(-10%)) 60%,
-    color(var(--blue) lightness(-7%) saturation(-10%)) 90%,
-    color(var(--blue) lightness(-4%) saturation(-10%))
-    );
-    border-radius: 5px;
-
-    -webkit-font-smoothing: subpixel-antialiased;
-}
-
-.subscribe-form button:active,
-.subscribe-form button:focus {
-    background: color(var(--blue) lightness(-9%) saturation(-10%));
-}
-
-.subscribe-form .button-loader,
-.subscribe-form .message-success,
-.subscribe-form .message-error {
-    display: none;
-}
-
-.subscribe-form .loading .button-content {
-    visibility: hidden;
-}
-
-.subscribe-form .loading .button-loader {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    display: inline-block;
-    margin-left: -19px;
-    transform: scale(0.7);
-}
-
-.subscribe-form .button-loader svg path,
-.subscribe-form .button-loader svg rect {
-    fill: #fff;
-}
-
-.subscribe-form .success .message-success,
-.subscribe-form .invalid .message-error,
-.subscribe-form .error .message-error {
-    margin: 1em auto 0;
-    max-width: 400px;
-    color: var(--red);
-    font-size: 1.6rem;
-    line-height: 1.5em;
-    text-align: center;
-}
-
-.subscribe-form .success .message-success {
-    display: block;
-    color: color(var(--green) l(-5%));
-}
-
-.subscribe-form .invalid .message-error,
-.subscribe-form .error .message-error {
-    display: block;
-}
-
-@media (max-width: 650px) {
-    .subscribe-form-title {
-        font-size: 2.4rem;
-    }
-
-    .subscribe-form-description {
-        font-size: 1.6rem;
-    }
-}
-
-@media (max-width: 500px) {
-    .subscribe-form form {
-        flex-direction: column;
-    }
-
-    .subscribe-form .form-group {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .subscribe-form button {
-        margin: 10px 0 0 0;
-        width: 100%;
-    }
-}
+  .header {
+      @apply my-16 text-center
+  }
+  .header h1 {
+    @apply text-4xl text-gray-800 antialiased font-bold mb-4
+  }
+  .header p {
+      @apply text-gray-700 text-sm antialiased font-medium
+  }
+  .content {
+      @apply shadow
+  }
+  .content img{
+      @apply h-full w-full rounded-t
+  }
+  .content p {
+      @apply p-10 antialiased text-gray-800 font-normal
+  }
 
 </style>

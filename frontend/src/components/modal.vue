@@ -1,6 +1,6 @@
 <template>
   <div class="modal z-20" v-show="value">
-    <button type="button" @click.prevent="close" class="close-button"><i class="fas fa-times"></i></button>
+    <button type="button" @click.prevent="close" class="close-button focus:outline-none"><i class="fas fa-times"></i></button>
     <div class="modal-content">
       <slot name="modal-content">
       </slot>

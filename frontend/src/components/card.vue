@@ -8,7 +8,7 @@
         Travel
       </p>
       <h1 class="font-medium text-padua text-2xl mt-0 mb-4" style="line-height: 1.25;">
-        Planning your final summer trip
+        <router-link to="/post/something">Planning your final summer trip</router-link>
       </h1>
       <p class="mb-1 text-gray-500">
         Summer is coming to a close just around the corner. But it's not too late to squeeze in another weekend trip

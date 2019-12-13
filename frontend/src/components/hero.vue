@@ -3,8 +3,10 @@
     <div class="overlay"></div>
     <div class="w-full flex opacity-75"><img src="../assets/img/2383848257.png" alt=""></div>
     <div class=" flex flex-col justify-center items-center text-center text-white absolute inset-0">
-      <h1 class="font-bold text-2xl antialiased mb-1">Welcome to our Blog</h1>
-      <p class=" antialiased font-medium">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint magnam earum tempore beatae nesciunt</p>
+      <slot>
+        <h1 class="font-bold text-2xl antialiased mb-1">Welcome to our Blog</h1>
+        <p class=" antialiased font-medium">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint magnam earum tempore beatae nesciunt</p>
+      </slot>
     </div>
   </div>
 </template>
