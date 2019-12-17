@@ -2,6 +2,7 @@ const createError = require('http-errors')
 const express = require('express')
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
+const cors = require('cors');
 const logger = require('morgan')
 const mongoose = require('mongoose')
 const indexRouter = require('./routes/index')
@@ -22,6 +23,8 @@ db.once('open', () => {
   console.log('> successfully opened the database')
 })
 
+app.use(cors());
+
 app.use(logger('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
@@ -29,7 +32,7 @@ app.use(cookieParser())
 
 // Parse incoming requests data
 app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.urlencoded({ extended: false }))
 
 app.use('/', indexRouter)
 app.use(postsRouter)

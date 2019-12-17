@@ -30,21 +30,30 @@ router.get('/api/v1/posts/:id', (req, res, next) => {
 
 // add new post
 router.post('/api/v1/posts', (req, res) => {
-  if (!req.body.title) {
-    return res.status(400).send({
-      success: 'False',
-      message: 'title is required'
-    })
-  } else if (!req.body.body) {
-    return res.status(400).send({
-      success: 'False',
-      message: 'content is required'
+  if (!req.body.title && !req.body.body) {
+    return res.send({
+      title: 'title is required',
+      body: 'content is required'
     })
   }
+
+  if (!req.body.title) {
+    return res.send({
+      title: 'title is required'
+    })
+  }
+
+  if (!req.body.body) {
+    return res.send({
+      body: 'content is required'
+    })
+  }
+
   const posts = Posts({
     title: req.body.title,
     body: req.body.body
   })
+
   posts.save((err) => {
     if (err) throw err
     return res.status(201).send({
