@@ -1,17 +1,15 @@
 <template>
-  <nav class="flex w-full items-center justify-between flex-wrap bg-padua shadow-md p-5 z-20">
+  <nav class="flex w-full items-center justify-between flex-wrap bg-padua-300 shadow-md p-5 z-20">
     <div class="flex items-center flex-shrink-0 text-white mr-6">
       <router-link to="/"><svg class="fill-current h-8 w-8 mr-2" width="54" height="54" viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg"><path d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z"/></svg></router-link>
       <span class="font-semibold text-xl tracking-tight"></span>
     </div>
     <div class="flex justify-end">
-      <div class="block">
-        <button @click="isActive = !isActive" class="flex items-center px-3 py-2 text-moss border-moss hover:text-white hover:border-white focus:outline-none">
-          <i class="fas fa-bars"></i>
-        </button>
-      </div>
+      <button @click="isActive = !isActive" class="flex items-center px-3 py-2 text-moss border-moss hover:text-white hover:border-white focus:outline-none">
+        <i class="fas fa-bars"></i>
+      </button>
       <transition name="slide-fade">
-        <div v-if="isActive" class="bg-padua fixed inset-0 w-64 h-full py-12 shadow-lg slide-menu z-10">
+        <div v-if="isActive" class="bg-padua-200 fixed inset-0 w-64 h-full py-12 shadow-lg slide-menu z-10">
           <div v-on-clickaway="away" class="absolute top-0 right-0 my-5 mx-8 text-moss text-lg"><a @click="isActive = false" href="#"><i class="fas fa-times"></i></a></div>
           <ul class="text-center">
             <li><a href="#">Home</a></li>
@@ -21,11 +19,10 @@
         </div>
       </transition>
       <div class="flex px-3 py-2 text-moss">
-        <i class="fas fa-moon mr-5 hover:text-white"></i>
+        <button class="focus:outline-none"><i class="fas fa-moon mr-5 hover:text-white"></i></button>
         <button @click="isModalVisible = !isModalVisible" class="focus:outline-none"><i class="fas fa-search hover:text-white"></i></button>
-        <div>
-          <modal v-model="isModalVisible"></modal>
-        </div>
+        <modal v-model="isModalVisible"></modal>
+        <router-link class="ml-5 hover:text-white" to="/login"><i class="fas fa-sign-in-alt"></i></router-link>
       </div>
     </div>
   </nav>

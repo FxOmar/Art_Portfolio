@@ -1,31 +1,64 @@
 <template>
-  <div id="app" class="" style="background: #f6f6f6">
-    <navbar />
-    <!-- <hero /> -->
-    <router-view/>
-    <appFooter />
+  <div id="app">
+    <component :is="layout">
+      <transition
+        name="fade"
+        mode="out-in"
+        @beforeLeave="beforeLeave"
+        @enter="enter"
+        @afterEnter="afterEnter"
+      >
+        <router-view/>
+      </transition>
+    </component>
   </div>
 </template>
 
 <script>
-import navbar from '@/components/navbar'
-// import hero from '@/components/hero'
-import appFooter from '@/components/appFooter'
+const defaultLayout = 'default'
 
 export default {
-  components: {
-    navbar,
-    // hero,
-    appFooter
+  data () {
+    return {
+      prevHeight: 0
+    }
   },
   computed: {
-    background () {
-      return require('./assets/img/augustine-wong-kTg4NXEmfs8-unsplash.jpg')
+    layout () {
+      return (this.$route.meta.layout || defaultLayout) + '-layout'
+    }
+  },
+  methods: {
+    beforeLeave (element) {
+      this.prevHeight = getComputedStyle(element).height
+    },
+    enter (element) {
+      const { height } = getComputedStyle(element)
+
+      element.style.height = this.prevHeight
+
+      setTimeout(() => {
+        element.style.height = height
+      })
+    },
+    afterEnter (element) {
+      element.style.height = 'auto'
     }
   }
 }
 </script>
 
 <style>
+.fade-enter-active,
+.fade-leave-active {
+  transition-duration: 0.3s;
+  transition-property: height, opacity;
+  transition-timing-function: ease;
+  overflow: hidden;
+}
 
+.fade-enter,
+.fade-leave-active {
+  opacity: 0
+}
 </style>

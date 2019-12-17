@@ -4,9 +4,16 @@ import router from './router'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+// Layout
+import Default from './layout/Default.vue'
+import UserDefault from './layout/UserDefault.vue'
 
 import 'swiper/dist/css/swiper.css'
 import './assets/css/tailwind.css'
+
+// define layout
+Vue.component('default-layout', Default)
+Vue.component('UserDefault-layout', UserDefault)
 
 Vue.config.productionTip = false
 
