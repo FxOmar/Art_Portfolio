@@ -5,7 +5,7 @@ const verify = require('./verifyToken')
 const router = express.Router()
 
 // Get all
-router.get('/api/v1/posts', (req, res, next) => {
+router.get('/api/v1/posts', (req, res) => {
   Posts.find({}, (err, posts) => {
     if (err) throw err
     return res.status(200).send({
@@ -17,7 +17,7 @@ router.get('/api/v1/posts', (req, res, next) => {
 })
 
 // Get by ID
-router.get('/api/v1/posts/:id', (req, res, next) => {
+router.get('/api/v1/posts/:id', (req, res) => {
   Posts.findById(req.params.id, (err, post) => {
     if (err) throw err
 
@@ -66,7 +66,7 @@ router.post('/api/v1/posts', verify, (req, res) => {
 })
 
 // Update posts by ID
-router.put('/api/v1/posts/:id', verify, (req, res, next) => {
+router.put('/api/v1/posts/:id', verify, (req, res) => {
   // get post by id
   Posts.findById(req.params.id, (err, post) => {
     if (err) throw err;
