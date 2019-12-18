@@ -1,3 +1,4 @@
+require('dotenv').config()
 const createError = require('http-errors')
 const express = require('express')
 const cookieParser = require('cookie-parser')
@@ -7,12 +8,12 @@ const logger = require('morgan')
 const mongoose = require('mongoose')
 const indexRouter = require('./routes/index')
 const postsRouter = require('./routes/posts')
+const authRouter = require('./routes/auth')
 
 const app = express()
 
 // Set up default mongoose connection
-const mongoDB = 'mongodb://127.0.0.1/blog'
-mongoose.connect(mongoDB, { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true })
+mongoose.connect(process.env.DB_CONNECT, { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true })
 
 //  Get the default connection
 let db = mongoose.connection
@@ -36,6 +37,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 app.use('/', indexRouter)
 app.use(postsRouter)
+app.use(authRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

@@ -1,5 +1,6 @@
 const express = require('express')
-const Posts = require('../db/posts')
+const Posts = require('../models/posts')
+const verify = require('./verifyToken')
 
 const router = express.Router()
 
@@ -29,7 +30,7 @@ router.get('/api/v1/posts/:id', (req, res, next) => {
 })
 
 // add new post
-router.post('/api/v1/posts', (req, res) => {
+router.post('/api/v1/posts', verify, (req, res) => {
   if (!req.body.title && !req.body.body) {
     return res.send({
       title: 'title is required',
@@ -49,7 +50,7 @@ router.post('/api/v1/posts', (req, res) => {
     })
   }
 
-  const posts = Posts({
+  const posts = new Posts({
     title: req.body.title,
     body: req.body.body
   })
@@ -65,7 +66,7 @@ router.post('/api/v1/posts', (req, res) => {
 })
 
 // Update posts by ID
-router.put('/api/v1/posts/:id', (req, res, next) => {
+router.put('/api/v1/posts/:id', verify, (req, res, next) => {
   // get post by id
   Posts.findById(req.params.id, (err, post) => {
     if (err) throw err;
@@ -87,7 +88,7 @@ router.put('/api/v1/posts/:id', (req, res, next) => {
 })
 
 // Delete Post by ID
-router.delete('/api/v1/posts/:id', (req, res) => {
+router.delete('/api/v1/posts/:id', verify, (req, res) => {
   Posts.findById(req.params.id, (err, post) => {
     if (err) throw err
 
