@@ -7,7 +7,7 @@
       <p class="mb-0 text-moss text-sm uppercase mb-4 tracking-widest">
         Travel
       </p>
-      <h1 class="font-medium text-padua text-2xl mt-0 mb-4" style="line-height: 1.25;">
+      <h1 class="font-medium text-padua-100 text-2xl mt-0 mb-4" style="line-height: 1.25;">
         <router-link to="/post/something">Planning your final summer trip</router-link>
       </h1>
       <p class="mb-1 text-gray-500">
@@ -33,6 +33,6 @@ export default {
 .blue-hover:hover {
   transform: translateY(-5px);
   border: none;
-  border-bottom: 5px solid theme('colors.padua');
+  border-bottom: 5px solid theme('colors.padua.400');
 }
 </style>

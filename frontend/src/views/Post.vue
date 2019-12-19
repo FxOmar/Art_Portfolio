@@ -4,7 +4,7 @@
       <div class="">
         <div class="flex flex-col flex-wrap items-center">
           <header class="header">
-            <hr class="border-2 border-padua w-20 inline-block mb-4">
+            <hr class="border-2 border-padua-400 w-20 inline-block mb-4">
             <h1>Single Travel: Tips for Going Solo</h1>
             <p>Posted on October 31, 2019 by Omar Chadidi | 16 comments</p>
           </header>

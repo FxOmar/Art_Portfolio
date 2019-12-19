@@ -16,6 +16,11 @@ module.exports = {
           '900': '#397556'
         },
         'chill': '#3b8686'
+      },
+      fontFamily: {
+        'Lobster': ['Lobster Two', 'cursive'],
+        'Roboto': ['Roboto', 'sans-serif'],
+        'Vidaloka': ['Vidaloka', 'serif']
       }
     }
   }

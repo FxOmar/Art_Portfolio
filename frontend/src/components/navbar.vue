@@ -22,7 +22,17 @@
         <button class="focus:outline-none"><i class="fas fa-moon mr-5 hover:text-white"></i></button>
         <button @click="isModalVisible = !isModalVisible" class="focus:outline-none"><i class="fas fa-search hover:text-white"></i></button>
         <modal v-model="isModalVisible"></modal>
-        <router-link class="ml-5 hover:text-white" to="/login"><i class="fas fa-sign-in-alt"></i></router-link>
+        <router-link v-if="!isLoggedIn" class="ml-5 hover:text-white" to="/login"><i class="fas fa-sign-in-alt"></i></router-link>
+        <div  v-if="isLoggedIn" class="relative">
+          <button v-on-clickaway="out" @click="isPopdown = !isPopdown" class="ml-5 hover:text-whit focus:outline-none"><img class="w-8 h-8 rounded-full" src="https://pbs.twimg.com/profile_images/885868801232961537/b1F6H4KC_400x400.jpg" alt="Avatar of Jonathan Reinink"></button>
+          <div v-show="isPopdown" class="rounded bg-white z-10 mt-4 absolute -ml-16 pin-t pin-l min-w-full">
+              <ul class="list-reset">
+                <li><router-link to="/dashboard" href="#" class="px-4 py-2 block text-black hover:bg-grey-light">My account</router-link></li>
+                <li><hr class="border-t mx-2 border-grey-ligght"></li>
+                <li><a href="#" @click="logout" class="px-4 py-2 block text-black hover:bg-grey-light">Logout</a></li>
+              </ul>
+          </div>
+        </div>
       </div>
     </div>
   </nav>
@@ -43,13 +53,26 @@ export default {
   data () {
     return {
       isActive: false,
-      isModalVisible: false
+      isModalVisible: false,
+      isPopdown: false
     }
   },
   methods: {
     away: function () {
       this.isActive = false
+    },
+    out: function () {
+      this.isPopdown = false
+    },
+    logout: function () {
+      this.$store.dispatch('logout')
+        .then(() => {
+          this.$router.push('/login')
+        })
     }
+  },
+  computed: {
+    isLoggedIn: function () { return this.$store.getters.isLoggedIn }
   }
 }
 
@@ -72,5 +95,8 @@ export default {
 /* .slide-fade-leave-active below version 2.1.8 */{
   transform: translateX(-10px);
   opacity: 0;
+}
+.list-reset li:hover{
+  @apply bg-gray-200
 }
 </style>
