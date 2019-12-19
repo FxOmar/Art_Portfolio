@@ -34,7 +34,7 @@ const routes = [{
   component: Login
 },
 {
-  path: '/new',
+  path: '/user/new',
   meta: {
     layout: 'UserDefault',
     is_admin: true,

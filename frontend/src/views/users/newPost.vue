@@ -7,20 +7,18 @@
             </svg>
         <p>{{ message }}</p>
     </div>
-      <h1 class="text-center antialiased font-bold text-padua text-lg mb-4">Here you can create new post</h1>
+      <h1 class="text-center antialiased font-bold text-padua-400 text-lg mb-4">Down here you can create your new post blog</h1>
       <form class="flex flex-col" @submit.prevent method="POST">
         <p class=" text-red-600 font-bold antialiased ml-3" v-show="error.title">{{ error.title }}</p>
         <input class="mb-3 p-4 text-lg shadow focus:outline-none text-gray-800" type="text" name="title" v-model="title" placeholder="Your post title here.">
         <p class=" text-red-600 font-bold antialiased ml-3" v-show="error.body">{{ error.body }}</p>
         <textarea class="mb-3 text-lg p-4 shadow focus:outline-none text-gray-800" placeholder="Here you can put all of your content." name="body" v-model="body" cols="30" rows="10"></textarea>
-        <button class="p-3 bg-moss text-white font-bold text-lg focus:outline-none hover:bg-padua rounded-sm w-64" type="submit" @click="publish()">Publish</button>
+        <button class="p-3 bg-padua-100 text-white font-bold text-lg focus:outline-none hover:bg-padua-300 rounded-sm w-64" type="submit" @click="publish()">Publish</button>
       </form>
   </div>
 </template>
 
 <script>
-import axios from 'axios'
-
 export default {
   data () {
     return {
@@ -32,7 +30,7 @@ export default {
   },
   methods: {
     publish () {
-      axios.post('http://localhost:3013/api/v1/posts', {
+      this.axios.post('http://localhost:3013/api/v1/posts', {
         title: this.title,
         body: this.body
       })
