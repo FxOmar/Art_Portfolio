@@ -46,8 +46,28 @@ router.post('/api/v1/auth/login', async (req, res) => {
     if (!validPass) return res.status(400).send('Invalid password!')
 
     const token = await jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET)
-    res.header('auth-token', token).send('added successfully')
+    res.header('token', token).send(token)
 
 })
 
+// get user by his id
+router.get('/api/v1/auth/user', (req, res) => {
+    const token = req.header('token')
+    try {
+        decoded = jwt.verify(token, process.env.TOKEN_SECRET);
+    } catch (e) {
+        res.status(401).send({error: {message: 'Unauthenticated'}});
+    }
+    var userId = decoded._id;
+    // Fetch the user by id 
+    User.findOne({_id: userId}).then(function(user){
+        // Do something with the user
+        return res.status(200).send({user});
+    });
+})
+
+// To update particular user.
+router.put('/api/v1/auth/users/:id', (req, res) => {
+    res.send('Here you can update me')
+})
 module.exports = router
