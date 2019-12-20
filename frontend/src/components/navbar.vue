@@ -23,16 +23,18 @@
         <button @click="isModalVisible = !isModalVisible" class="focus:outline-none"><i class="fas fa-search hover:text-white"></i></button>
         <modal v-model="isModalVisible"></modal>
         <router-link v-if="!isLoggedIn" class="ml-5 hover:text-white" to="/login"><i class="fas fa-sign-in-alt"></i></router-link>
-        <div  v-if="isLoggedIn" class="relative">
-          <button v-on-clickaway="out" @click="isPopdown = !isPopdown" class="ml-5 mt-2 hover:text-whit focus:outline-none"><img class="w-8 h-8 rounded-full" src="https://pbs.twimg.com/profile_images/885868801232961537/b1F6H4KC_400x400.jpg" alt="Avatar of Jonathan Reinink"></button>
-          <div v-show="isPopdown" class="rounded bg-white z-10 mt-1 absolute -ml-16 min-w-full list-1">
-              <ul class="list-reset">
-                <li><router-link to="/dashboard" href="#" class="px-4 py-2 block text-black">My account</router-link></li>
-                <li><hr class="border-t mx-2 border-grey-200"></li>
-                <li><a href="#" @click="logout" class="px-4 py-2 block text-black">Logout</a></li>
-              </ul>
+        <template  v-if="isLoggedIn">
+          <div  class="relative">
+            <button v-on-clickaway="out" @click="isPopdown = !isPopdown" class="ml-5 mt-2 hover:text-whit focus:outline-none"><img class="w-8 h-8 rounded-full" src="https://pbs.twimg.com/profile_images/885868801232961537/b1F6H4KC_400x400.jpg" alt="Avatar of Jonathan Reinink"></button>
+            <div v-show="isPopdown" class="rounded bg-white z-10 mt-1 absolute -ml-16 min-w-full list-1">
+                <ul class="list-reset">
+                  <li><router-link to="/dashboard" href="#" class="px-4 py-2 block text-gray-800">My account</router-link></li>
+                  <li><hr class="border-t mx-2 border-grey-200"></li>
+                  <li><a href="#" @click="logout" class="px-4 py-2 block text-gray-800">Logout</a></li>
+                </ul>
+            </div>
           </div>
-        </div>
+        </template>
       </div>
     </div>
   </nav>

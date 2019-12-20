@@ -31,12 +31,27 @@
         </div>
       </div>
     </div>
+    <div>
+      <button @click="user">User</button>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-
+  methods: {
+    user: function () {
+      const auth = {
+        headers: { token: localStorage.getItem('token') }
+      }
+      this.axios.get('http://localhost:3013/api/v1/auth/user', auth)
+        .then((res) => {
+          console.log(res)
+        }).catch(err => {
+          console.log(err)
+        })
+    }
+  }
 }
 
 </script>

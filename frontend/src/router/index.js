@@ -66,6 +66,12 @@ router.beforeEach((to, from, next) => {
       return
     }
     next('/login')
+  } else if (to.matched.some(record => record.meta.guest)) {
+    if (!store.getters.isLoggedIn) {
+      next()
+    } else {
+      next('/')
+    }
   } else {
     next()
   }
