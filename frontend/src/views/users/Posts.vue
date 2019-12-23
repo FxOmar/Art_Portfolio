@@ -1,0 +1,45 @@
+<template>
+  <div class="my-5">
+    <div class="flex justify-between mb-5">
+        <h1 class="text-2xl text-gray-800 font-bold antialiased">Posts</h1>
+        <div class="">
+            <button class="bg-padua-300 text-white py-2 px-2 rounded focus:outline-none shadow-md hover:bg-padua-500">New post</button>
+        </div>
+    </div>
+    <section class="w-full">
+      <ol class="">
+        <div class="flex px-3 py-3 bg-gray-200 text-gray-700 uppercase font-bold text-xs">
+            <div class="w-9/12">Title</div>
+            <div class="w-24">Status</div>
+            <div class="">LAST UPDATE</div>
+        </div>
+        <ul>
+            <a v-for="i in 9" :key="i" href="#">
+                <li class="flex w-full hover:bg-gray-200">
+                    <div class="w-9/12">Alfreds Futterkiste</div>
+                    <div class="w-24"><span class="bg-gray-300 py-1 px-1 rounded text-sm text-gray-600 font-bold">Published</span></div>
+                    <div class=" antialiased text-sm text-gray-600">3 hour ago</div>
+                </li>
+            </a>
+        </ul>
+    </ol>
+    </section>
+  </div>
+</template>
+
+<script>
+export default {
+
+}
+
+</script>
+
+<style scoped>
+ol {
+    @apply border-collapse w-full shadow rounded-lg
+}
+
+li {
+    @apply border-t text-gray-800 py-6 px-4
+}
+</style>
