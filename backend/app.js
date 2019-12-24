@@ -3,6 +3,7 @@ const createError = require('http-errors')
 const express = require('express')
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
+const fileUpload = require('express-fileupload');
 const cors = require('cors');
 const logger = require('morgan')
 const mongoose = require('mongoose')
@@ -23,6 +24,14 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 db.once('open', () => {
   console.log('> successfully opened the database')
 })
+
+// enable files upload
+app.use(fileUpload({
+  createParentPath: true,
+  limits: { 
+    fileSize: 2 * 1024 * 1024 * 1024 //2MB max file(s) size
+  },
+}));
 
 app.use(cors());
 

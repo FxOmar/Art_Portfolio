@@ -1,51 +1,167 @@
 <template>
-  <div class="container mx-auto my-16">
-    <div v-show="message" class="flex items-center bg-green-500 text-white text-sm font-bold px-4 py-3" role="alert">
-        <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-            <path
-            d="M12.432 0c1.34 0 2.01.912 2.01 1.957 0 1.305-1.164 2.512-2.679 2.512-1.269 0-2.009-.75-1.974-1.99C9.789 1.436 10.67 0 12.432 0zM8.309 20c-1.058 0-1.833-.652-1.093-3.524l1.214-5.092c.211-.814.246-1.141 0-1.141-.317 0-1.689.562-2.502 1.117l-.528-.88c2.572-2.186 5.531-3.467 6.801-3.467 1.057 0 1.233 1.273.705 3.23l-1.391 5.352c-.246.945-.141 1.271.106 1.271.317 0 1.357-.392 2.379-1.207l.6.814C12.098 19.02 9.365 20 8.309 20z" />
-            </svg>
-        <p>{{ message }}</p>
+  <div class="">
+    <div class="header flex justify-between my-8 mx-8 text-sm">
+      <router-link to="/dashboard/posts" class=" text-padua-200"><i class="fas fa-chevron-left mr-2"></i> Posts</router-link>
+      <div class=" text-padua-200">
+        <button>Publish</button>
+      </div>
     </div>
-      <h1 class="text-center antialiased font-bold text-padua-400 text-lg mb-4">Down here you can create your new post blog</h1>
-      <form class="flex flex-col" @submit.prevent method="POST">
-        <p class=" text-red-600 font-bold antialiased ml-3" v-show="error.title">{{ error.title }}</p>
-        <input class="mb-3 p-4 text-lg shadow focus:outline-none text-gray-800" type="text" name="title" v-model="title" placeholder="Your post title here.">
-        <p class=" text-red-600 font-bold antialiased ml-3" v-show="error.body">{{ error.body }}</p>
-        <textarea class="mb-3 text-lg p-4 shadow focus:outline-none text-gray-800" placeholder="Here you can put all of your content." name="body" v-model="body" cols="30" rows="10"></textarea>
-        <button class="p-3 bg-padua-100 text-white font-bold text-lg focus:outline-none hover:bg-padua-300 rounded-sm w-64" type="submit" @click="publish()">Publish</button>
-      </form>
+    <div class="editor container mx-auto my-20 w-4/5">
+      <input class="w-full border-none text-4xl text-gray-800 font-bold antialiased focus:outline-none bg-transparent my-3" placeholder="Post Title" type="text" name="" id="">
+      <editor-menu-bubble :editor="editor" v-slot="{ commands, isActive, menu }">
+        <div
+          class="menububble"
+          :class="{ 'is-active': menu.isActive }"
+          :style="`left: ${menu.left}px; bottom: ${menu.bottom}px;`"
+        >
+          <button
+            class="menububble__button"
+            :class="{ 'is-active': isActive.bold() }"
+            @click="commands.bold"
+          >
+            <i class="fas fa-code"></i>
+          </button>
+
+          <button
+            class="menububble__button"
+            :class="{ 'is-active': isActive.italic() }"
+            @click="commands.italic"
+          >
+            <i class="fas fa-code"></i>
+          </button>
+
+          <button
+            class="menububble__button"
+            :class="{ 'is-active': isActive.code() }"
+            @click="commands.code"
+          >
+            <i class="fas fa-code"></i>
+          </button>
+
+        </div>
+      </editor-menu-bubble>
+      <!-- <input type="text" v-model="editor.extensions.options.placeholder.emptyNodeText"> -->
+      <editor-content class="editor__content"  :editor="editor" />
+    </div>
   </div>
 </template>
 
 <script>
+// import Icon from 'Components/Icon'
+import { Editor, EditorContent, EditorMenuBubble } from 'tiptap'
+import {
+  Blockquote,
+  BulletList,
+  CodeBlock,
+  HardBreak,
+  Heading,
+  ListItem,
+  OrderedList,
+  TodoItem,
+  TodoList,
+  Bold,
+  Code,
+  Italic,
+  Link,
+  Strike,
+  Underline,
+  History,
+  Placeholder
+} from 'tiptap-extensions'
 export default {
+  components: {
+    EditorContent,
+    EditorMenuBubble
+    // Icon
+  },
   data () {
     return {
-      title: '',
-      body: '',
-      message: '',
-      error: ''
+      keepInBounds: true,
+      editor: new Editor({
+        extensions: [
+          new Blockquote(),
+          new BulletList(),
+          new CodeBlock(),
+          new HardBreak(),
+          new Heading({ levels: [1, 2, 3] }),
+          new ListItem(),
+          new OrderedList(),
+          new TodoItem(),
+          new TodoList(),
+          new Link(),
+          new Bold(),
+          new Code(),
+          new Italic(),
+          new Strike(),
+          new Underline(),
+          new History(),
+          new Placeholder({
+            emptyEditorClass: 'is-editor-empty',
+            emptyNodeClass: 'is-empty',
+            emptyNodeText: 'Begin writing your post...',
+            showOnlyWhenEditable: true,
+            showOnlyCurrent: true
+          })
+        ]
+      })
     }
   },
-  methods: {
-    publish () {
-      this.axios.post('http://localhost:3013/api/v1/posts', {
-        title: this.title,
-        body: this.body
-      })
-        .then((res) => {
-          this.message = res.data.message
-          this.error = res.data
-        })
-        .catch(error => {
-          console.log(error)
-        })
-    }
+  beforeDestroy () {
+    this.editor.destroy()
   }
 }
 </script>
 
-<style scoped>
-
+<style>
+.editor {
+    @apply relative
+}
+.menububble {
+    position: absolute;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    z-index: 20;
+    background: #000;
+    border-radius: 5px;
+    padding: .3rem;
+    margin-bottom: .5rem;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: opacity .2s,visibility .2s;
+    transition: opacity .2s,visibility .2s;
+}
+.menububble.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+.menububble__button {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    background: transparent;
+    border: 0;
+    color: #fff;
+    padding: .2rem .5rem;
+    margin-right: .2rem;
+    border-radius: 3px;
+    cursor: pointer;
+}
+:focus {
+  @apply outline-none
+}
+.editor__content p.is-editor-empty:first-child::before {
+  content: attr(data-empty-text);
+  float: left;
+  color: #a0aec0;
+  pointer-events: none;
+  height: 0;
+  font-style: italic;
+}
+.editor__content div p {
+  @apply text-lg;
+  color: theme('colors.gray.800');
+}
 </style>

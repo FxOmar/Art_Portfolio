@@ -38,8 +38,7 @@ const routes = [{
 {
   path: '/user/new',
   meta: {
-    layout: 'boradDefault',
-    is_admin: true,
+    layout: 'UserDefault',
     requiresAuth: true
   },
   component: NewPost
