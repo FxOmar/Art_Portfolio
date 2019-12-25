@@ -5,6 +5,7 @@ import Post from '../views/Post.vue'
 import Login from '../views/users/Login.vue'
 import UserBoard from '../views/users/UserBoard.vue'
 import ViewPosts from '../views/users/Posts.vue'
+import ViewPages from '../views/users/Pages.vue'
 import NewPost from '../views/users/newPost.vue'
 import Profile from '../views/users/profile.vue'
 import store from '../store.js'
@@ -65,6 +66,15 @@ const routes = [{
   path: '/dashboard/posts',
   name: 'posts',
   component: ViewPosts,
+  meta: {
+    layout: 'boradDefault',
+    requiresAuth: true
+  }
+},
+{
+  path: '/dashboard/pages',
+  name: 'pages',
+  component: ViewPages,
   meta: {
     layout: 'boradDefault',
     requiresAuth: true

@@ -1,9 +1,9 @@
 <template>
   <div class="">
     <div class="header flex justify-between my-8 mx-8 text-sm">
-      <router-link to="/dashboard/posts" class=" text-padua-200"><i class="fas fa-chevron-left mr-2"></i> Posts</router-link>
-      <div class=" text-padua-200">
-        <button>Publish</button>
+      <router-link to="/dashboard/posts" class="text-padua-200 hover:text-padua-500"><i class="fas fa-chevron-left mr-2"></i> Posts</router-link>
+      <div class="">
+        <button class="focus:outline-none text-padua-200 hover:text-padua-500">Publish</button>
       </div>
     </div>
     <div class="editor container mx-auto my-20 w-4/5">
@@ -37,6 +37,12 @@
           >
             <i class="fas fa-code"></i>
           </button>
+          <button
+            class="menubar__button"
+            @click="showImagePrompt(commands.image)"
+          >
+            <i class="far fa-image"></i>
+          </button>
 
         </div>
       </editor-menu-bubble>
@@ -47,7 +53,6 @@
 </template>
 
 <script>
-// import Icon from 'Components/Icon'
 import { Editor, EditorContent, EditorMenuBubble } from 'tiptap'
 import {
   Blockquote,
@@ -66,13 +71,13 @@ import {
   Strike,
   Underline,
   History,
-  Placeholder
+  Placeholder,
+  Image
 } from 'tiptap-extensions'
 export default {
   components: {
     EditorContent,
     EditorMenuBubble
-    // Icon
   },
   data () {
     return {
@@ -101,13 +106,22 @@ export default {
             emptyNodeText: 'Begin writing your post...',
             showOnlyWhenEditable: true,
             showOnlyCurrent: true
-          })
+          }),
+          new Image()
         ]
       })
     }
   },
   beforeDestroy () {
     this.editor.destroy()
+  },
+  methods: {
+    showImagePrompt (command) {
+      const src = prompt('Enter the url of your image here')
+      if (src !== null) {
+        command({ src })
+      }
+    }
   }
 }
 </script>

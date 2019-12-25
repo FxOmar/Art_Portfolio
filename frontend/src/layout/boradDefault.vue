@@ -1,9 +1,11 @@
 <template>
   <div class="flex">
-      <sidebar class="w-1/5" />
-      <div class="w-4/5 mx-16 flex-1">
-          <slot />
-      </div>
+    <div>
+      <sidebar class="w-64 sticky top-0 h-screen" />
+    </div>
+    <div class="w-full">
+        <slot />
+    </div>
   </div>
 </template>
 

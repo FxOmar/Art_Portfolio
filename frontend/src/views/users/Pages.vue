@@ -1,8 +1,8 @@
 <template>
   <div class="my-5">
     <header class="w-full px-8 py-3 flex justify-between items-center mb-5 sticky top-0  canvas-header--sticky" style="background: #f6f6f6;">
-        <h1 class="text-3xl text-gray-700 font-bold antialiased">Posts</h1>
-        <router-link to="/user/new" class="bg-padua-300 text-white py-2 px-2 rounded focus:outline-none hover:bg-padua-500">New post</router-link>
+        <h1 class="text-3xl text-gray-700 font-bold antialiased">Pages</h1>
+        <router-link to="/user/new" class="bg-padua-300 text-white py-2 px-2 rounded focus:outline-none hover:bg-padua-500">New page</router-link>
     </header>
     <section class="mx-8">
       <ol class="">
@@ -40,13 +40,4 @@ ol {
 li {
     @apply border-t text-gray-800 py-6 px-4
 }
-/* .canvas-header--sticky:before {
-    content: "";
-    position: absolute;
-    background: #deeaf2;
-    height: 1px;
-    bottom: -2px;
-    left: 24px;
-    right: 24px;
-} */
 </style>
