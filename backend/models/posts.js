@@ -8,10 +8,12 @@ const postsSchema = new Schema({
   body: String,
   comments: [{ body: String, date: Date }],
   hidden: Boolean,
-  meta: {
-    votes: Number,
-    favs: Number
-  },
+  tags: [
+    {
+      name : String,
+      slug : String
+    }
+  ],
   created_at: Date,
   updated_at: Date
 })

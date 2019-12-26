@@ -5,15 +5,15 @@
       <div class="">
         <button class="focus:outline-none text-padua-200 hover:text-padua-500">Publish</button>
         <button @click="isSideBarActive = !isSideBarActive" class="focus:outline-none text-padua-200 hover:text-padua-500 ml-3"><i class="fas fa-cog"></i></button>
-        <transition name="slide-fade">
-          <div v-on-clickaway="away" v-if="isSideBarActive" class="bg-padua-300 fixed top-0 right-0 h-full py-12 shadow slide-menu z-10" style="width: 366px;">
+        <transition  name="slide-fade">
+          <div  :class="[isSideBarActive ? 'block': 'hidden']" class="bg-padua-300 fixed top-0 right-0 h-full py-12 shadow slide-menu z-10" style="width: 366px;">
             <div class="mx-6 -mt-8 mb-6 text-moss text-lg flex justify-between">
               <h1 class="text-white font-bold antialiased">Post settings</h1>
               <a @click="isSideBarActive = false" href="#"><i class="fas fa-times"></i></a>
             </div>
             <div class="flex flex-col mx-5">
               <div class="bg-padua-100 py-10 text-center">
-                <input type="file" @click="displayImgName" name="file" id="file" ref="inputFile" class="inputfile"/>
+                <input type="file" @change="displayImgName" name="file" id="file" ref="inputFile" class="inputfile"/>
                 <label ref="label"  for="file">Choose a file</label>
               </div>
               <div class="my-6">
@@ -168,13 +168,10 @@ export default {
       this.isSideBarActive = false
     },
     displayImgName () {
-      const inputs = this.$refs.inputFile
-      const label = this.$refs.label
-
-      inputs.addEventListener('change', function (e) {
-        const fileName = e.target.value.split('\\').pop()
-        label.innerHTML = fileName
-      })
+      let label = this.$refs.label
+      const fileName = this.$refs.inputFile.value.split('\\').pop()
+      if (fileName) label.innerHTML = fileName
+      else label = label.innerHTML
     }
   }
 }
@@ -264,7 +261,7 @@ export default {
     display: inline-block;
 }
 .inputfile + label {
-  cursor: pointer; /* "hand" cursor */
+  cursor: pointer; /*"hand" cursor*/
 }
 /* style the background and the text color of the input ... */
 .vue-tags-input {
