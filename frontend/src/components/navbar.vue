@@ -28,7 +28,7 @@
             <button v-on-clickaway="out" @click="isPopdown = !isPopdown" class="ml-5 mt-2 hover:text-whit focus:outline-none"><img class="w-8 h-8 rounded-full" src="https://pbs.twimg.com/profile_images/885868801232961537/b1F6H4KC_400x400.jpg" alt="Avatar of Jonathan Reinink"></button>
             <div v-show="isPopdown" class="rounded bg-white z-10 mt-1 absolute -ml-16 min-w-full list-1">
                 <ul class="list-reset">
-                  <li><router-link to="/dashboard" href="#" class="px-4 py-2 block text-gray-800">My account</router-link></li>
+                  <li><router-link to="/senku/posts" href="#" class="px-4 py-2 block text-gray-800">My account</router-link></li>
                   <li><hr class="border-t mx-2 border-grey-200"></li>
                   <li><a href="#" @click="logout" class="px-4 py-2 block text-gray-800">Logout</a></li>
                 </ul>

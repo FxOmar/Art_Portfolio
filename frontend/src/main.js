@@ -5,6 +5,7 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 import store from './store'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+
 // Layout
 import Default from './layout/Default.vue'
 import UserDefault from './layout/UserDefault.vue'

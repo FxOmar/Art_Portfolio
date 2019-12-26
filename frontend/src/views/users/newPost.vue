@@ -1,9 +1,40 @@
 <template>
   <div class="">
     <div class="header flex justify-between my-8 mx-8 text-sm">
-      <router-link to="/dashboard/posts" class="text-padua-200 hover:text-padua-500"><i class="fas fa-chevron-left mr-2"></i> Posts</router-link>
+      <router-link to="/senku/posts" class="text-padua-200 hover:text-padua-500"><i class="fas fa-chevron-left mr-2"></i> Posts</router-link>
       <div class="">
         <button class="focus:outline-none text-padua-200 hover:text-padua-500">Publish</button>
+        <button @click="isSideBarActive = !isSideBarActive" class="focus:outline-none text-padua-200 hover:text-padua-500 ml-3"><i class="fas fa-cog"></i></button>
+        <transition name="slide-fade">
+          <div v-on-clickaway="away" v-if="isSideBarActive" class="bg-padua-300 fixed top-0 right-0 h-full py-12 shadow slide-menu z-10" style="width: 366px;">
+            <div class="mx-6 -mt-8 mb-6 text-moss text-lg flex justify-between">
+              <h1 class="text-white font-bold antialiased">Post settings</h1>
+              <a @click="isSideBarActive = false" href="#"><i class="fas fa-times"></i></a>
+            </div>
+            <div class="flex flex-col mx-5">
+              <div class="bg-padua-100 py-10 text-center">
+                <input type="file" @click="displayImgName" name="file" id="file" ref="inputFile" class="inputfile"/>
+                <label ref="label"  for="file">Choose a file</label>
+              </div>
+              <div class="my-6">
+                <h3 class="text-white font-bold mb-2">Tags</h3>
+                <vue-tags-input
+                  v-model="tag"
+                  :tags="tags"
+                  @tags-changed="newTags => tags = newTags"
+                />
+              </div>
+              <div class="my-6">
+                <h3 class="text-white font-bold mb-2">Authors</h3>
+                <vue-tags-input
+                  v-model="author"
+                  :tags="authors"
+                  @tags-changed=" newAuthors => authors = newAuthors"
+                />
+              </div>
+            </div>
+          </div>
+        </transition>
       </div>
     </div>
     <div class="editor container mx-auto my-20 w-4/5">
@@ -38,7 +69,7 @@
             <i class="fas fa-code"></i>
           </button>
           <button
-            class="menubar__button"
+            class="menububble__button"
             @click="showImagePrompt(commands.image)"
           >
             <i class="far fa-image"></i>
@@ -74,13 +105,24 @@ import {
   Placeholder,
   Image
 } from 'tiptap-extensions'
+import { directive as onClickaway } from 'vue-clickaway'
+import VueTagsInput from '@johmun/vue-tags-input'
 export default {
   components: {
     EditorContent,
-    EditorMenuBubble
+    EditorMenuBubble,
+    VueTagsInput
+  },
+  directives: {
+    onClickaway: onClickaway
   },
   data () {
     return {
+      tag: '',
+      tags: [],
+      authors: ['Omar chadidi'],
+      author: '',
+      isSideBarActive: false,
       keepInBounds: true,
       editor: new Editor({
         extensions: [
@@ -121,6 +163,18 @@ export default {
       if (src !== null) {
         command({ src })
       }
+    },
+    away: function () {
+      this.isSideBarActive = false
+    },
+    displayImgName () {
+      const inputs = this.$refs.inputFile
+      const label = this.$refs.label
+
+      inputs.addEventListener('change', function (e) {
+        const fileName = e.target.value.split('\\').pop()
+        label.innerHTML = fileName
+      })
     }
   }
 }
@@ -178,4 +232,62 @@ export default {
   @apply text-lg;
   color: theme('colors.gray.800');
 }
+.slide-menu ul li {
+  @apply pt-3 text-moss antialiased text-lg font-medium
+}
+.slide-menu ul li:hover{
+  @apply text-white
+}
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */{
+  transform: translateX(10px);
+  opacity: 0;
+}
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+.inputfile + label {
+    font-size: 1.25em;
+    font-weight: 700;
+    color: white;
+    display: inline-block;
+}
+.inputfile + label {
+  cursor: pointer; /* "hand" cursor */
+}
+/* style the background and the text color of the input ... */
+.vue-tags-input {
+  @apply rounded
+}
+
+.vue-tags-input .ti-new-tag-input {
+  background: transparent;
+  color: #222222;
+}
+
+.vue-tags-input .ti-input {
+  padding: 5px 10px;
+  transition: border-bottom 200ms ease;
+  border: none;
+}
+/* default styles for all the tags */
+.vue-tags-input .ti-tag {
+  position: relative;
+  background: theme('colors.padua.500');
+  color: white;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
 </style>

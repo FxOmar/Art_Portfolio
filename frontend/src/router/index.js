@@ -2,8 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Post from '../views/Post.vue'
+import Tagged from '../views/Tagged.vue'
 import Login from '../views/users/Login.vue'
-import UserBoard from '../views/users/UserBoard.vue'
 import ViewPosts from '../views/users/Posts.vue'
 import ViewPages from '../views/users/Pages.vue'
 import NewPost from '../views/users/newPost.vue'
@@ -28,6 +28,13 @@ const routes = [{
   component: Post
 },
 {
+  path: '/tagged/:slug',
+  meta: {
+    layout: 'default'
+  },
+  component: Tagged
+},
+{
   path: '/login',
   name: 'login',
   meta: {
@@ -45,15 +52,6 @@ const routes = [{
   component: NewPost
 },
 {
-  path: '/dashboard',
-  name: 'userboard',
-  component: UserBoard,
-  meta: {
-    layout: 'boradDefault',
-    requiresAuth: true
-  }
-},
-{
   path: '/profile',
   name: 'profile',
   component: Profile,
@@ -63,7 +61,7 @@ const routes = [{
   }
 },
 {
-  path: '/dashboard/posts',
+  path: '/senku/posts',
   name: 'posts',
   component: ViewPosts,
   meta: {
@@ -72,7 +70,7 @@ const routes = [{
   }
 },
 {
-  path: '/dashboard/pages',
+  path: '/senku/pages',
   name: 'pages',
   component: ViewPages,
   meta: {

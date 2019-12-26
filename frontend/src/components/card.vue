@@ -5,7 +5,7 @@
       alt="Man with backpack" class="block w-full">
     <div class="px-6 py-6">
       <p class="mb-0 text-moss text-sm uppercase mb-4 tracking-widest">
-        Travel
+        <router-link to="/tagged/travel">Travel</router-link>
       </p>
       <h1 class="font-medium text-padua-100 text-2xl mt-0 mb-4" style="line-height: 1.25;">
         <router-link to="/post/something">Planning your final summer trip</router-link>
