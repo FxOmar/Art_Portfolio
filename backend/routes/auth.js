@@ -90,34 +90,39 @@ router.get('/api/v1/auth/user', (req, res) => {
 })
 
 // To update particular user.
-router.put('/api/v1/auth/profile', async (req, res) => {
-    // Upload avatar image
+router.post('/api/v1/auth/user', (req, res) => {
+	const token = req.header('token')
 	try {
-		if (!req.files) {
-			res.send({
-				status: false,
-				message: 'No file uploaded'
-			});
-		} else {
-			//Use the name of the input field (i.e. "avatar") to retrieve the uploaded file
-			let avatar = req.files.avatar;
-
-			//Use the mv() method to place the file in upload directory (i.e. "uploads")
-			// avatar.mv('./uploads/' + avatar.name);
-
-			//send response
-			res.send({
-				status: true,
-				message: 'File is uploaded',
-				data: {
-					name: avatar.name,
-					mimetype: avatar.mimetype,
-					size: avatar.size
-				}
-			});
-		}
-	} catch (err) {
-		res.status(500).send(err);
+		decoded = jwt.verify(token, process.env.TOKEN_SECRET)
+	} catch (e) {
+		res.status(401).send({
+			error: {
+				message: 'Unauthenticated'
+			}
+		})
 	}
+	var userId = decoded._id;
+	// get post by id
+	User.findById(userId, (err, user) => {
+		if (err) throw err;
+
+		const userinfo = {
+			username: req.body.username,
+			email: req.body.email,
+			password: req.body.newPassword
+		}
+		if (userinfo.username)
+			user.username = req.body.username
+		if (userinfo.email)
+			user.email = req.body.email
+		if (userinfo.password)
+			user.password = req.body.newPassword
+
+		user.save((err) => {
+			if (err) throw err
+			console.log('User successfully updated!')
+			res.status(201).send({message: 'User successfully updated!'})
+		})
+	})
 })
 module.exports = router

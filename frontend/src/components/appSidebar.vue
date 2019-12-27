@@ -11,6 +11,9 @@
           <li class="text-gray-800 py-1 px-5 antialiased hover:bg-gray-200 hover:text-gray-800 rounded-lg">
             <router-link to="/senku/pages"><i class="fas fa-poll-h"></i> Pages</router-link>
           </li>
+          <li class="text-gray-800 py-1 px-5 antialiased hover:bg-gray-200 hover:text-gray-800 rounded-lg">
+            <router-link to="/settings/profile"><i class="fas fa-poll-h"></i> Settings</router-link>
+          </li>
         </ul>
       </div>
     </nav>

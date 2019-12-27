@@ -52,7 +52,7 @@ const routes = [{
   component: NewPost
 },
 {
-  path: '/profile',
+  path: '/settings/profile',
   name: 'profile',
   component: Profile,
   meta: {

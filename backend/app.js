@@ -3,8 +3,8 @@ const createError = require('http-errors')
 const express = require('express')
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
-const fileUpload = require('express-fileupload');
-const cors = require('cors');
+var multer  = require('multer')
+const cors = require('cors')
 const logger = require('morgan')
 const mongoose = require('mongoose')
 const indexRouter = require('./routes/index')
@@ -25,13 +25,27 @@ db.once('open', () => {
   console.log('> successfully opened the database')
 })
 
-// enable files upload
-app.use(fileUpload({
-  createParentPath: true,
-  limits: { 
-    fileSize: 2 * 1024 * 1024 * 1024 //2MB max file(s) size
-  },
-}));
+// Create storage engine
+// const storage = new GridFsStorage({
+//   url: process.env.DB_CONNECT,
+//   file: (req, file) => {
+//     return new Promise((resolve, reject) => {
+//       crypto.randomBytes(16, (err, buf) => {
+//         if (err) {
+//           return reject(err)
+//         }
+//         const filename = file.originalname
+//         const fileInfo = {
+//           filename: filename,
+//           bucketName: 'uploads',
+//         }
+//         resolve(fileInfo)
+//       })
+//     })
+//   },
+// })
+
+// const upload = multer({ storage })
 
 app.use(cors());
 
