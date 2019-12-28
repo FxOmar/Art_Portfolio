@@ -18,11 +18,16 @@
           </ul>
         </div>
       </transition>
-      <div class="flex px-3 text-moss">
-        <button class="focus:outline-none"><i class="fas fa-moon mr-5 hover:text-white"></i></button>
-        <button @click="isModalVisible = !isModalVisible" class="focus:outline-none"><i class="fas fa-search hover:text-white"></i></button>
-        <modal v-model="isModalVisible"></modal>
-        <router-link v-if="!isLoggedIn" class="ml-5 hover:text-white" to="/login"><i class="fas fa-sign-in-alt"></i></router-link>
+      <div class="flex justify-center items-center px-3 text-moss">
+        <!-- <button class="focus:outline-none"><i class="fas fa-moon mr-5 hover:text-white"></i></button> -->
+        <div class="">
+          <transition name="slide-fadeR">
+            <input v-show="isSearchBarActive" class="mr-2 rounded px-3 py-1 bg-padua-500 text-white" placeholder="Search..." type="search" name="" id="">
+          </transition>
+          <button @click="isSearchBarActive = !isSearchBarActive" class="focus:outline-none"><i class="fas fa-search hover:text-white"></i></button>
+        </div>
+        <!-- <modal v-model="isModalVisible"></modal> -->
+        <router-link v-if="!isLoggedIn" class="ml-5 hover:text-white antialiased font-bold" to="/login">Login</router-link>
         <template  v-if="isLoggedIn">
           <div  class="relative">
             <button v-on-clickaway="out" @click="isPopdown = !isPopdown" class="ml-5 mt-2 hover:text-whit focus:outline-none"><img class="w-8 h-8 rounded-full" src="https://pbs.twimg.com/profile_images/885868801232961537/b1F6H4KC_400x400.jpg" alt="Avatar of Jonathan Reinink"></button>
@@ -42,12 +47,12 @@
 
 <script>
 import { directive as onClickaway } from 'vue-clickaway'
-import modal from '@/components/modal'
+// import modal from '@/components/modal'
 
 export default {
   name: 'navbar',
   components: {
-    modal
+    // modal
   },
   directives: {
     onClickaway: onClickaway
@@ -55,7 +60,7 @@ export default {
   data () {
     return {
       isActive: false,
-      isModalVisible: false,
+      isSearchBarActive: false,
       isPopdown: false
     }
   },
@@ -98,7 +103,29 @@ export default {
   transform: translateX(-10px);
   opacity: 0;
 }
+.slide-fadeR-enter-active {
+  transition: all .3s ease;
+}
+.slide-fadeR-leave-active {
+  transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fadeR-enter, .slide-fade-leave-to{
+  transform: translateX(10px);
+  opacity: 0;
+}
 .list-1 .list-reset li:hover{
   @apply bg-gray-200
+}
+::placeholder {
+  color: rgb(231, 231, 231);
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+ color: rgb(231, 231, 231);
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+ color: rgb(231, 231, 231);
 }
 </style>
