@@ -90,7 +90,7 @@ router.get('/api/v1/auth/user', (req, res) => {
 })
 
 // To update particular user.
-router.post('/api/v1/auth/user', (req, res) => {
+router.put('/api/v1/auth/user', (req, res) => {
 	const token = req.header('token')
 	try {
 		decoded = jwt.verify(token, process.env.TOKEN_SECRET)
@@ -103,7 +103,7 @@ router.post('/api/v1/auth/user', (req, res) => {
 	}
 	var userId = decoded._id;
 	// get post by id
-	User.findById(userId, (err, user) => {
+	User.findById(userId, async (err, user) => {
 		if (err) throw err;
 
 		const userinfo = {
@@ -111,18 +111,28 @@ router.post('/api/v1/auth/user', (req, res) => {
 			email: req.body.email,
 			password: req.body.newPassword
 		}
+		
+		const validPass = await bcrypt.compare(req.body.password, user.password)
+		const salt = await bcrypt.genSalt(10)
+
 		if (userinfo.username)
 			user.username = req.body.username
 		if (userinfo.email)
 			user.email = req.body.email
 		if (userinfo.password)
-			user.password = req.body.newPassword
-
+			if (!validPass) 
+				return res.status(400).send('Wrong password!')
+			else if (req.body.ConfirmPassword === req.body.newPassword){
+				hashedPassword = await bcrypt.hash(req.body.newPassword, salt)
+				user.password = hashedPassword
+			}else 
+				res.send({message: 'Password wrong!'})
 		user.save((err) => {
 			if (err) throw err
 			console.log('User successfully updated!')
-			res.status(201).send({message: 'User successfully updated!'})
+			res.status(200).send({message: 'User successfully updated!'})
 		})
 	})
 })
+
 module.exports = router

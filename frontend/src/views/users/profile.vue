@@ -2,7 +2,7 @@
   <div class="bg-white py-5 px-5 rounded shadow mx-16 my-16">
     <form @submit.prevent class="flex flex-col profile">
       <div class="mx-auto">
-        <img class="w-40 rounded" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="">
+        <img class="w-40 rounded" :src="avatar_imgage" alt="">
         <input type="file" name="" id="avatar">
       </div>
       <label for="username">
@@ -20,15 +20,15 @@
       <label for="password">
         <span>Current Password</span>
       </label>
-      <input type="password" name="" placeholder="password" id="password">
+      <input type="password" name="" v-model="password" placeholder="password" id="password" required>
       <label for="newPassword">
         <span>New Password</span>
       </label>
-      <input type="password" name="" placeholder="New Password" id="newPassword">
+      <input type="password" name="" v-model="newPassword" placeholder="New Password" id="newPassword">
       <label for="confirmPassword">
         <span>Confirm new password</span>
       </label>
-      <input type="password" name="" placeholder="Confirm new password" id="confirmPassword">
+      <input type="password" name="" v-model="ConfirmPassword" placeholder="Confirm new password" id="confirmPassword" required>
       <button @click="setUser" class="w-40 bg-padua-300 rounded py-2 px-3 text-white antialiased font-bold my-5 focus:outline-none hover:bg-padua-600" type="submit">Update profile</button>
     </form>
   </div>
@@ -40,9 +40,16 @@ export default {
     return {
       username: '',
       email: '',
+      password: '',
       newPassword: '',
       ConfirmPassword: '',
+      avatar_img: null,
       created_at: null
+    }
+  },
+  computed: {
+    avatar_imgage () {
+      return require('../../assets/img/profile-picture.png')
     }
   },
   methods: {
@@ -63,19 +70,23 @@ export default {
     },
     setUser: function () {
       this.axios({
-        method: 'post',
+        method: 'put',
         url: 'http://localhost:3013/api/v1/auth/user',
         data: {
           username: this.username,
           email: this.email,
-          password: this.newPassword
+          password: this.password,
+          newPassword: this.newPassword,
+          ConfirmPassword: this.ConfirmPassword
         },
         headers: {
           token: localStorage.getItem('token')
         }
       }).then((res) => {
+        this.password = this.newPassword = this.ConfirmPassword = ''
         console.log(res)
       }).catch(err => {
+        this.password = this.newPassword = this.ConfirmPassword = ''
         console.log(err)
       })
     }
@@ -92,7 +103,7 @@ export default {
   @apply block text-gray-700
 }
 .profile>label {
-  @apply
+  @apply mt-2
 }
 .profile>input {
   @apply py-2 px-3 rounded w-full text-gray-800 bg-gray-200
