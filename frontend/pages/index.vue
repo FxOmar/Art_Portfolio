@@ -1,12 +1,9 @@
 <template>
-  <div class="app">
-    <div class="box"></div>
-  </div>
+	<div class="app"></div>
 </template>
 
 <script>
 export default {}
 </script>
 
-<style lang="postcss">
-</style>
+<style lang="postcss"></style>

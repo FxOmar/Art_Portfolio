@@ -20,7 +20,7 @@ $ npm install
 In one terminal, run:
 ```
 $ cd /backend
-$ DEBUG=backend* npm run start
+$ npm run start
 ```
 And in another:
 ```
