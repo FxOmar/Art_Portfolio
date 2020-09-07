@@ -1,9 +1,9 @@
 const jwt = require('jsonwebtoken')
 
 module.exports = function (req, res, next) {
-    const token = req.header('token')
+    const access_token = req.header('access_token')
 	try {
-        decoded = jwt.verify(token, process.env.TOKEN_SECRET);
+        decoded = jwt.verify(access_token, process.env.TOKEN_SECRET);
         req.user = decoded
         next()
 	} catch (e) {

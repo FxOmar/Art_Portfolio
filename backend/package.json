@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node_modules/.bin/nodemon ./bin/www --exec babel-node --"
+    "start": "cross-env node_modules/.bin/nodemon ./bin/www --exec babel-node --"
   },
   "dependencies": {
     "@hapi/joi": "^16.1.8",
@@ -27,6 +27,7 @@
     "multer": "^1.4.2"
   },
   "devDependencies": {
+    "cross-env": "^7.0.2",
     "eslint": "^6.7.2",
     "nodemon": "^2.0.1"
   }

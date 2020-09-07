@@ -5,7 +5,7 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 import store from './store'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
-
+import VueCookies from 'vue-cookies'
 // Layout
 import Default from './layout/Default.vue'
 import UserDefault from './layout/UserDefault.vue'
@@ -21,6 +21,7 @@ Vue.component('boradDefault-layout', boradDefault)
 
 Vue.config.productionTip = false
 
+Vue.use(VueCookies)
 Vue.use(VueAxios, axios)
 Vue.use(VueAwesomeSwiper)
 

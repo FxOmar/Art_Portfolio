@@ -6,7 +6,7 @@
       <div class="text-center">
         <h1 class=" text-5xl text-padua-100 antialiased font-normal mb-5 font-Vidaloka">Blog</h1>
       </div>
-      <form @submit.prevent="login" method="POST" class=" bg-padua-500 shadow-2xl rounded-lg px-8 pt-12 pb-8 mb-4">
+      <div class=" bg-padua-500 shadow-2xl rounded-lg px-8 pt-12 pb-8 mb-4">
         <div class="mb-4">
           <label  class="block text-white text-sm font-medium mb-2" for="username">
             username
@@ -22,11 +22,12 @@
         <div class="flex justify-center">
           <button
             class="bg-white w-40 hover:bg-gray-300 text-gray-800 font-bold font-medium text-sm uppercase py-3 rounded-full focus:outline-none"
-            type="submit">
+            @click="login"
+            >
             log in <i class="fas fa-chevron-right bg-padua-700 p-1 w-5 ml-2 rounded-full text-xs text-white"></i>
           </button>
         </div>
-      </form>
+      </div>
       <a class="font-bold text-sm text-white hover:text-gray-400 text-center underline uppercase"
         href="#">
         Forgot Password?
@@ -45,16 +46,14 @@ export default {
     }
   },
   methods: {
-    login: function () {
-      let email = this.email
-      let password = this.password
-      this.$store.dispatch('login', { email, password })
-        .then(() => {
-          this.$router.push('/')
-        })
-        .catch(err => {
-          console.log(err)
-        })
+    async login () {
+      // eslint-disable-next-line camelcase
+      const { data: { access_token } } = await this.axios.post('http://localhost:3013/api/v1/auth/login', {
+        email: this.email,
+        password: this.password
+      })
+      this.$cookies.set('access_token', access_token, '10d', '/')
+      this.$store.dispatch('getUser')
     }
   }
 

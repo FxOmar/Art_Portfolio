@@ -8,7 +8,7 @@ import ViewPosts from '../views/users/Posts.vue'
 import ViewPages from '../views/users/Pages.vue'
 import NewPost from '../views/users/newPost.vue'
 import Profile from '../views/users/profile.vue'
-import store from '../store.js'
+// import store from '../store'
 
 Vue.use(VueRouter)
 
@@ -86,22 +86,22 @@ const router = new VueRouter({
   routes
 })
 
-router.beforeEach((to, from, next) => {
-  if (to.matched.some(record => record.meta.requiresAuth)) {
-    if (store.getters.isLoggedIn) {
-      next()
-      return
-    }
-    next('/login')
-  } else if (to.matched.some(record => record.meta.guest)) {
-    if (!store.getters.isLoggedIn) {
-      next()
-    } else {
-      next('/')
-    }
-  } else {
-    next()
-  }
-})
+// router.beforeEach((to, from, next) => {
+//   if (to.matched.some(record => record.meta.requiresAuth)) {
+//     if (store.state.Auth.user) {
+//       next()
+//       return
+//     }
+//     next('/login')
+//   } else if (to.matched.some(record => record.meta.guest)) {
+//     if (!store.state.Auth.user) {
+//       next()
+//     } else {
+//       next('/')
+//     }
+//   } else {
+//     next()
+//   }
+// })
 
 export default router

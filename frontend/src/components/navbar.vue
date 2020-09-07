@@ -72,14 +72,11 @@ export default {
       this.isPopdown = false
     },
     logout: function () {
-      this.$store.dispatch('logout')
-        .then(() => {
-          this.$router.push('/login')
-        })
+      // this.$store.dispatch('logout')
+      //   .then(() => {
+      //     this.$router.push('/login')
+      //   })
     }
-  },
-  computed: {
-    isLoggedIn: function () { return this.$store.getters.isLoggedIn }
   }
 }
 

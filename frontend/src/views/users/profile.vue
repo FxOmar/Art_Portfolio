@@ -53,21 +53,6 @@ export default {
     }
   },
   methods: {
-    getUser: function () {
-      const auth = {
-        headers: {
-          token: localStorage.getItem('token')
-        }
-      }
-      this.axios.get('http://localhost:3013/api/v1/auth/user', auth)
-        .then((res) => {
-          this.username = res.data.user.username
-          this.email = res.data.user.email
-          this.created_at = res.data.user.created_at
-        }).catch(err => {
-          console.log(err)
-        })
-    },
     setUser: function () {
       this.axios({
         method: 'put',
@@ -90,9 +75,6 @@ export default {
         console.log(err)
       })
     }
-  },
-  mounted () {
-    this.getUser()
   }
 }
 

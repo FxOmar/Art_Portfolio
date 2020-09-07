@@ -3,13 +3,11 @@ const createError = require('http-errors')
 const express = require('express')
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
-var multer  = require('multer')
 const cors = require('cors')
 const logger = require('morgan')
 const mongoose = require('mongoose')
-const indexRouter = require('./routes/index')
-const postsRouter = require('./routes/posts')
-const authRouter = require('./routes/auth')
+const postsRouter = require('./api/posts')
+const authRouter = require('./api/auth')
 
 const app = express()
 
@@ -17,35 +15,13 @@ const app = express()
 mongoose.connect(process.env.DB_CONNECT, { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true })
 
 //  Get the default connection
-let db = mongoose.connection
+const db = mongoose.connection
 
 // Bind connection to error event (to get notification of connection errors)
 db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 db.once('open', () => {
   console.log('> successfully opened the database')
 })
-
-// Create storage engine
-// const storage = new GridFsStorage({
-//   url: process.env.DB_CONNECT,
-//   file: (req, file) => {
-//     return new Promise((resolve, reject) => {
-//       crypto.randomBytes(16, (err, buf) => {
-//         if (err) {
-//           return reject(err)
-//         }
-//         const filename = file.originalname
-//         const fileInfo = {
-//           filename: filename,
-//           bucketName: 'uploads',
-//         }
-//         resolve(fileInfo)
-//       })
-//     })
-//   },
-// })
-
-// const upload = multer({ storage })
 
 app.use(cors());
 
@@ -58,7 +34,6 @@ app.use(cookieParser())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
-app.use('/', indexRouter)
 app.use(postsRouter)
 app.use(authRouter)
 
